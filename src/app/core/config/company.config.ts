@@ -42,7 +42,7 @@ export const COMPANY = {
   mapsUrl: 'https://www.google.com/maps/search/?api=1&query=6A%2C%20Clive%20Row%2C%20Kolkata%20700001',
 
   /** ⚠ PLACEHOLDER — set to the live domain once known (used for canonical / OG tags) */
-  siteUrl: 'https://www.example.com',
+  siteUrl: 'https://www.bhrubberproducts.com',
 
   seo: {
     defaultTitle: 'B H Rubber Products | Industrial Rubber Solutions',
