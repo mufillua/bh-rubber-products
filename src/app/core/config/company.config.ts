@@ -7,7 +7,7 @@
  */
 export const COMPANY = {
   name: 'B H Rubber Products',
-  tagline: 'Industrial Rubber Solutions',
+  tagline: 'Industrial Rubber & Safety Solutions',
   owner: 'Yusuf Golwala',
 
   /** Shown on screen */

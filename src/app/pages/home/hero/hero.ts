@@ -1,5 +1,6 @@
 import { ChangeDetectionStrategy, Component, computed, inject } from '@angular/core';
 import { RouterLink } from '@angular/router';
+import { COMPANY } from '../../../core/config/company.config';
 import { CatalogService } from '../../../core/services/catalog.service';
 import { Icon } from '../../../shared/components/icon/icon';
 import { SegmentRing } from '../../../shared/components/segment-ring/segment-ring';
@@ -13,6 +14,7 @@ import { SegmentRing } from '../../../shared/components/segment-ring/segment-rin
 })
 export class Hero {
   private readonly catalog = inject(CatalogService);
+  readonly company = COMPANY;
 
   readonly productCount = this.catalog.products.length;
   readonly categoryCount = this.catalog.categories.length;

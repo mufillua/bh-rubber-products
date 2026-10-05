@@ -340,3 +340,20 @@
     letter-spacing: 0.05em;
   }
 }
+
+/* Very small phones: keep the longer tagline clear of the menu button */
+@media (max-width: 359px) {
+  .brand {
+    gap: 8px;
+  }
+
+  .emblem {
+    width: 36px;
+    height: 36px;
+  }
+
+  .wm-tag {
+    font-stretch: 100%;
+    letter-spacing: 0.01em;
+  }
+}
