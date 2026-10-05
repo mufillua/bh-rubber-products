@@ -1,0 +1,172 @@
+@if (product(); as p) {
+  <div class="detail">
+    <div class="container">
+      <div class="topbar">
+        <button type="button" class="btn btn--ghost back" (click)="back()">
+          <bh-icon name="arrow-left" />
+          Back to Products
+        </button>
+        <nav aria-label="Breadcrumb" class="crumbs-wrap">
+          <ol class="crumbs">
+            <li><a routerLink="/">Home</a></li>
+            <li><bh-icon name="chevron-right" /><a routerLink="/products">Products</a></li>
+            @if (category(); as c) {
+              <li>
+                <bh-icon name="chevron-right" />
+                <a routerLink="/products" [queryParams]="{ category: c.slug }">{{ c.name }}</a>
+              </li>
+            }
+            <li class="current"><bh-icon name="chevron-right" /><span aria-current="page">{{ p.code ?? p.name }}</span></li>
+          </ol>
+        </nav>
+      </div>
+
+      <div class="grid">
+        <!-- ============ Image ============ -->
+        <div class="gallery">
+          <figure class="frame">
+            <img
+              [src]="p.image"
+              [alt]="p.name"
+              width="640"
+              height="640"
+              fetchpriority="high"
+              decoding="async"
+            />
+            @if (p.code) {
+              <figcaption class="code-tag frame-code">{{ p.code }}</figcaption>
+            }
+          </figure>
+        </div>
+
+        <!-- ============ Information ============ -->
+        <div class="info">
+          @if (category(); as c) {
+            <a class="cat-link" routerLink="/products" [queryParams]="{ category: c.slug }">{{ c.name }}</a>
+          }
+          <h1>{{ p.name }}</h1>
+          @if (p.code) {
+            <p class="code-line">Product code <strong>{{ p.code }}</strong></p>
+          }
+          <p class="description">{{ p.description }}</p>
+
+          <div class="enquire" id="enquire">
+            <bh-whatsapp-button [product]="p" />
+            <bh-email-button [product]="p" />
+          </div>
+          <p class="enquire-note">
+            Your message opens with the product name{{ p.code ? ' and code' : '' }} already filled in.
+          </p>
+
+          <!-- Specifications -->
+          <section class="block" aria-labelledby="spec-title">
+            <h2 id="spec-title">Specifications</h2>
+            <dl class="spec-table">
+              @for (row of specRows(); track row.label) {
+                <div class="spec-row">
+                  <dt>{{ row.label }}</dt>
+                  <dd>{{ row.value }}</dd>
+                </div>
+              }
+            </dl>
+          </section>
+
+          @if (p.sizes?.length) {
+            <section class="block" aria-labelledby="size-title">
+              <h2 id="size-title"><bh-icon name="ruler" /> Available sizes</h2>
+              <ul class="chips" role="list">
+                @for (s of p.sizes; track s) {
+                  <li class="chip size-chip">{{ s }}</li>
+                }
+              </ul>
+            </section>
+          }
+
+          @if (p.materials?.length) {
+            <section class="block" aria-labelledby="mat-title">
+              <h2 id="mat-title"><bh-icon name="layers" /> Materials</h2>
+              <ul class="chips" role="list">
+                @for (m of p.materials; track m) {
+                  <li class="chip">{{ m }}</li>
+                }
+              </ul>
+            </section>
+          }
+
+          @if (p.colours?.length) {
+            <section class="block" aria-labelledby="col-title">
+              <h2 id="col-title"><bh-icon name="palette" /> Colours</h2>
+              <ul class="chips" role="list">
+                @for (c of p.colours; track c) {
+                  <li class="chip">{{ c }}</li>
+                }
+              </ul>
+            </section>
+          }
+
+          @if (p.standards?.length) {
+            <section class="block" aria-labelledby="std-title">
+              <h2 id="std-title"><bh-icon name="shield" /> Standards</h2>
+              <ul class="standards" role="list">
+                @for (s of p.standards; track s) {
+                  <li><bh-icon name="shield" />{{ s }}</li>
+                }
+              </ul>
+            </section>
+          }
+
+          @if (p.applications?.length) {
+            <section class="block" aria-labelledby="app-title">
+              <h2 id="app-title"><bh-icon name="grid" /> Applications</h2>
+              <ul class="chips" role="list">
+                @for (a of p.applications; track a) {
+                  <li class="chip">{{ a }}</li>
+                }
+              </ul>
+            </section>
+          }
+
+          @if (p.features?.length) {
+            <section class="block" aria-labelledby="feat-title">
+              <h2 id="feat-title"><bh-icon name="check" /> Features</h2>
+              <ul class="features" role="list">
+                @for (f of p.features; track f) {
+                  <li><bh-icon name="check" />{{ f }}</li>
+                }
+              </ul>
+            </section>
+          }
+        </div>
+      </div>
+    </div>
+
+    @if (related().length) {
+      <section class="section related" aria-labelledby="rel-title">
+        <div class="container">
+          <div class="section-head section-head--split">
+            <div>
+              <h2 id="rel-title">More {{ category()?.name }}</h2>
+            </div>
+            <a class="btn btn--outline" routerLink="/products" [queryParams]="{ category: p.category }">
+              View all in this category
+            </a>
+          </div>
+          <bh-product-grid [products]="related()" />
+        </div>
+      </section>
+    }
+
+    <!-- Sticky enquiry bar on phones, so the buttons are always in reach -->
+    <div class="mobile-bar" role="region" aria-label="Enquire about this product">
+      <bh-whatsapp-button [product]="p" label="WhatsApp" [block]="true" />
+      <bh-email-button [product]="p" label="Email" [block]="true" />
+    </div>
+  </div>
+} @else {
+  <div class="container missing">
+    <div class="seg-rule" aria-hidden="true"><i></i><i></i><i></i><i></i></div>
+    <h1>Product not found</h1>
+    <p>This product may have been renamed or removed. Search the catalogue to find what you need.</p>
+    <a class="btn btn--primary" routerLink="/products">Browse all products</a>
+  </div>
+}

@@ -1,0 +1,60 @@
+.cta {
+  position: relative;
+  overflow: hidden;
+  isolation: isolate;
+  padding: clamp(32px, 6vw, 72px) clamp(24px, 6vw, 72px);
+  border-radius: var(--radius-lg);
+  background: var(--c-peach);
+  border: 1px solid var(--c-peach-line);
+}
+
+/* Large ring, partly cropped on the right — the logo motif at poster scale */
+.ring {
+  position: absolute;
+  z-index: -1;
+  width: clamp(280px, 42vw, 520px);
+  right: clamp(-200px, -10vw, -60px);
+  top: 50%;
+  transform: translateY(-50%) rotate(-8deg);
+  opacity: 0.9;
+  --ring-ink: rgba(31, 31, 31, 0.1);
+  --ring-accent: var(--c-orange);
+
+  @media (max-width: 719px) {
+    right: -150px;
+    top: auto;
+    bottom: -170px;
+    transform: rotate(-8deg);
+    opacity: 0.6;
+  }
+}
+
+.content {
+  display: grid;
+  gap: 16px;
+  max-width: 560px;
+
+  p {
+    color: var(--c-ink-2);
+    font-size: var(--fs-md);
+  }
+}
+
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 8px;
+
+  @media (max-width: 479px) {
+    flex-direction: column;
+
+    > * {
+      width: 100%;
+    }
+
+    ::ng-deep .btn {
+      width: 100%;
+    }
+  }
+}

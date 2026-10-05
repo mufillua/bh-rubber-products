@@ -1,0 +1,70 @@
+<bh-hero />
+
+<!-- ============ Categories ============ -->
+<section class="section section--steel" aria-labelledby="cat-title">
+  <div class="container">
+    <div class="section-head section-head--split" bhReveal>
+      <div>
+        <div class="seg-rule" aria-hidden="true"><i></i><i></i><i></i><i></i></div>
+        <h2 id="cat-title">Browse by category</h2>
+        <p>{{ catalog.categories.length }} categories across gloves, leather protection, workwear and flanges.</p>
+      </div>
+      <a class="btn btn--outline" routerLink="/categories">All categories</a>
+    </div>
+
+    <div class="divisions">
+      @for (d of divisions; track d.slug) {
+        <div class="division" bhReveal>
+          <div class="division-head">
+            <h3>{{ d.name }}</h3>
+            <p>{{ d.description }}</p>
+          </div>
+          <ul class="cat-grid" role="list">
+            @for (c of d.categories; track c.slug) {
+              <li><bh-category-card [category]="c" /></li>
+            }
+          </ul>
+        </div>
+      }
+    </div>
+  </div>
+</section>
+
+<!-- ============ Featured products ============ -->
+<section class="section" aria-labelledby="feat-title">
+  <div class="container">
+    <div class="section-head section-head--split" bhReveal>
+      <div>
+        <div class="seg-rule" aria-hidden="true"><i></i><i></i><i></i><i></i></div>
+        <h2 id="feat-title">Explore Our Products</h2>
+        <p>A selection from the catalogue — each with full details and a one-tap enquiry.</p>
+      </div>
+      <a class="btn btn--primary" routerLink="/products">
+        View All Products
+        <bh-icon name="chevron-right" />
+      </a>
+    </div>
+    <bh-product-grid [products]="featured" />
+  </div>
+</section>
+
+<!-- ============ How enquiries work ============ -->
+<section class="section section--peach steps-section" aria-labelledby="steps-title">
+  <div class="container steps-grid">
+    <div class="steps-intro" bhReveal>
+      <h2 id="steps-title">From catalogue to quote in three steps</h2>
+      <p>No account or cart — tell us the product and quantity and we'll reply with availability and pricing.</p>
+    </div>
+    <ol class="steps">
+      @for (s of steps; track s.title; let i = $index) {
+        <li bhReveal [revealDelay]="i * 90">
+          <span class="step-num">{{ i + 1 }}</span>
+          <h3>{{ s.title }}</h3>
+          <p>{{ s.text }}</p>
+        </li>
+      }
+    </ol>
+  </div>
+</section>
+
+<bh-cta-section />

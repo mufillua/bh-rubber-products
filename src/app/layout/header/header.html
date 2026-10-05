@@ -1,0 +1,80 @@
+<header class="bar">
+  <div class="container bar-inner">
+    <a class="brand" routerLink="/" aria-label="B H Rubber Products — home">
+      <img class="emblem" src="brand/bh-emblem-96.png" alt="" width="44" height="44" />
+      <span class="wordmark">
+        <span class="wm-name">{{ company.name }}</span>
+        <span class="wm-tag">{{ company.tagline }}</span>
+      </span>
+    </a>
+
+    <nav class="nav" aria-label="Main">
+      <ul>
+        @for (link of links; track link.path) {
+          <li>
+            <a
+              [routerLink]="link.path"
+              routerLinkActive="active"
+              [routerLinkActiveOptions]="{ exact: link.exact }"
+              ariaCurrentWhenActive="page"
+              >{{ link.label }}</a
+            >
+          </li>
+        }
+        <li>
+          <a class="phone" [href]="enquiry.telLink()" [attr.aria-label]="'Call ' + company.phoneDisplay">
+            <bh-icon name="phone" />
+            <span class="phone-num">{{ company.phoneDisplay }}</span>
+          </a>
+        </li>
+        <li>
+          <a class="btn btn--accent btn--sm quote" routerLink="/contact">Get A Quote</a>
+        </li>
+      </ul>
+    </nav>
+
+    <button
+      type="button"
+      class="burger"
+      [attr.aria-expanded]="menuOpen()"
+      aria-controls="mobile-menu"
+      [attr.aria-label]="menuOpen() ? 'Close menu' : 'Open menu'"
+      (click)="toggleMenu()"
+    >
+      <span class="burger-lines" aria-hidden="true"><i></i><i></i><i></i></span>
+    </button>
+  </div>
+</header>
+
+<div class="scrim" (click)="closeMenu()" aria-hidden="true"></div>
+
+<div id="mobile-menu" class="panel" [attr.aria-hidden]="!menuOpen()" [attr.inert]="menuOpen() ? null : ''">
+  <nav aria-label="Mobile">
+    <ul class="panel-links">
+      @for (link of links; track link.path; let i = $index) {
+        <li [style.--d]="i">
+          <a
+            [routerLink]="link.path"
+            routerLinkActive="active"
+            [routerLinkActiveOptions]="{ exact: link.exact }"
+            ariaCurrentWhenActive="page"
+          >
+            {{ link.label }}
+            <bh-icon name="chevron-right" />
+          </a>
+        </li>
+      }
+    </ul>
+  </nav>
+  <div class="panel-actions">
+    <a class="btn btn--accent btn--block" routerLink="/contact">Get A Quote</a>
+    <div class="panel-row">
+      <a class="btn btn--outline btn--block" [href]="enquiry.telLink()">
+        <bh-icon name="phone" /> {{ company.phoneDisplay }}
+      </a>
+      <a class="btn btn--whatsapp btn--block" [href]="enquiry.generalWhatsapp()" target="_blank" rel="noopener">
+        <bh-icon name="whatsapp" /> WhatsApp
+      </a>
+    </div>
+  </div>
+</div>

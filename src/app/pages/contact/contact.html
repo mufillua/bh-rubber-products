@@ -1,0 +1,149 @@
+<bh-page-header
+  title="Get A Quote"
+  intro="Tell us the product and quantity you need. We'll reply with availability and pricing."
+  [crumbs]="[{ label: 'Contact / Get A Quote' }]"
+/>
+
+<section class="section contact-section">
+  <div class="container layout">
+    <!-- ============ Form ============ -->
+    <div class="form-card">
+      @if (sentVia()) {
+        <div class="sent" role="status">
+          <span class="sent-icon"><bh-icon name="check" /></span>
+          <h2>Your enquiry is ready to send</h2>
+          @if (sentVia() === 'email') {
+            <p>
+              Your email app should now be open with the enquiry filled in. Press send there to reach us. If nothing
+              opened, send the same details on WhatsApp instead.
+            </p>
+          } @else {
+            <p>WhatsApp has opened in a new tab with your enquiry filled in. Press send there to reach us.</p>
+          }
+          <div class="sent-actions">
+            @if (sentVia() === 'email') {
+              <button type="button" class="btn btn--whatsapp" (click)="sendWhatsapp()">
+                <bh-icon name="whatsapp" /> Send on WhatsApp instead
+              </button>
+            }
+            <button type="button" class="btn btn--outline" (click)="startOver()">Start a new enquiry</button>
+          </div>
+        </div>
+      } @else {
+        <form [formGroup]="form" (ngSubmit)="sendEmail()" novalidate aria-labelledby="form-title">
+          <div class="form-head">
+            <h2 id="form-title">Enquiry details</h2>
+            <p>Fields marked <span class="req" aria-hidden="true">*</span><span class="visually-hidden">with an asterisk</span> are required.</p>
+          </div>
+
+          <div class="fields">
+            <div class="field" [class.invalid]="showError('name')">
+              <label for="f-name">Name <span class="req" aria-hidden="true">*</span></label>
+              <input id="f-name" type="text" formControlName="name" autocomplete="name"
+                [attr.aria-invalid]="showError('name')" aria-describedby="e-name" required />
+              <p class="error" id="e-name" aria-live="polite">{{ showError('name') ? errorFor('name') : '' }}</p>
+            </div>
+
+            <div class="field" [class.invalid]="showError('company')">
+              <label for="f-company">Company name</label>
+              <input id="f-company" type="text" formControlName="company" autocomplete="organization"
+                [attr.aria-invalid]="showError('company')" aria-describedby="e-company" />
+              <p class="error" id="e-company" aria-live="polite">{{ showError('company') ? errorFor('company') : '' }}</p>
+            </div>
+
+            <div class="field" [class.invalid]="showError('phone')">
+              <label for="f-phone">Phone number <span class="req" aria-hidden="true">*</span></label>
+              <input id="f-phone" type="tel" formControlName="phone" autocomplete="tel" inputmode="tel"
+                placeholder="+91" [attr.aria-invalid]="showError('phone')" aria-describedby="e-phone" required />
+              <p class="error" id="e-phone" aria-live="polite">{{ showError('phone') ? errorFor('phone') : '' }}</p>
+            </div>
+
+            <div class="field" [class.invalid]="showError('email')">
+              <label for="f-email">Email <span class="req" aria-hidden="true">*</span></label>
+              <input id="f-email" type="email" formControlName="email" autocomplete="email"
+                [attr.aria-invalid]="showError('email')" aria-describedby="e-email" required />
+              <p class="error" id="e-email" aria-live="polite">{{ showError('email') ? errorFor('email') : '' }}</p>
+            </div>
+
+            <div class="field wide" [class.invalid]="showError('requirement')">
+              <label for="f-requirement">Product / requirement <span class="req" aria-hidden="true">*</span></label>
+              <input id="f-requirement" type="text" formControlName="requirement"
+                placeholder="e.g. L227A drivers gloves, or cut level 5 gloves"
+                [attr.aria-invalid]="showError('requirement')" aria-describedby="e-requirement" required />
+              <p class="error" id="e-requirement" aria-live="polite">{{ showError('requirement') ? errorFor('requirement') : '' }}</p>
+            </div>
+
+            <div class="field wide" [class.invalid]="showError('quantity')">
+              <label for="f-quantity">Quantity</label>
+              <input id="f-quantity" type="text" formControlName="quantity" placeholder="e.g. 500 pairs, size 9 and 10"
+                [attr.aria-invalid]="showError('quantity')" aria-describedby="e-quantity" />
+              <p class="error" id="e-quantity" aria-live="polite">{{ showError('quantity') ? errorFor('quantity') : '' }}</p>
+            </div>
+
+            <div class="field wide" [class.invalid]="showError('message')">
+              <label for="f-message">Message</label>
+              <textarea id="f-message" rows="5" formControlName="message"
+                placeholder="Sizes, colours, delivery location or anything else we should know"
+                [attr.aria-invalid]="showError('message')" aria-describedby="e-message"></textarea>
+              <p class="error" id="e-message" aria-live="polite">{{ showError('message') ? errorFor('message') : '' }}</p>
+            </div>
+          </div>
+
+          @if (submitted() && form.invalid) {
+            <p class="form-alert" role="alert">Please fix the highlighted fields, then send your enquiry.</p>
+          }
+
+          <div class="actions">
+            <button type="submit" class="btn btn--accent">
+              <bh-icon name="mail" /> Send Enquiry
+            </button>
+            <button type="button" class="btn btn--whatsapp" (click)="sendWhatsapp()">
+              <bh-icon name="whatsapp" /> Enquire on WhatsApp
+            </button>
+          </div>
+          <p class="hint">“Send Enquiry” opens your email app with everything filled in. WhatsApp opens in a new tab.</p>
+        </form>
+      }
+    </div>
+
+    <!-- ============ Contact details ============ -->
+    <aside class="details" aria-labelledby="details-title">
+      <h2 id="details-title" class="visually-hidden">Contact details</h2>
+
+      <a class="channel" [href]="enquiry.telLink()">
+        <span class="ch-icon"><bh-icon name="phone" /></span>
+        <span><span class="ch-label">Call us</span><span class="ch-value">{{ company.phoneDisplay }}</span></span>
+      </a>
+      <a class="channel" [href]="enquiry.generalWhatsapp()" target="_blank" rel="noopener">
+        <span class="ch-icon wa"><bh-icon name="whatsapp" /></span>
+        <span><span class="ch-label">WhatsApp</span><span class="ch-value">Chat with us</span></span>
+      </a>
+      <a class="channel" [href]="'mailto:' + company.email">
+        <span class="ch-icon"><bh-icon name="mail" /></span>
+        <span><span class="ch-label">Email</span><span class="ch-value">{{ company.email }}</span></span>
+      </a>
+
+      <div class="panel">
+        <h3><bh-icon name="map-pin" /> Address</h3>
+        <address>
+          {{ company.name }}<br />
+          {{ company.address.line1 }}<br />
+          {{ company.address.city }} {{ company.address.postcode }}, {{ company.address.region }}
+        </address>
+        <a class="link" [href]="company.mapsUrl" target="_blank" rel="noopener">Get directions</a>
+      </div>
+
+      <div class="panel">
+        <h3><bh-icon name="clock" /> Shop timings</h3>
+        <dl class="hours">
+          @for (h of company.hours; track h.days) {
+            <div>
+              <dt>{{ h.days }}</dt>
+              <dd [class.closed]="h.time === 'Closed'">{{ h.time }}</dd>
+            </div>
+          }
+        </dl>
+      </div>
+    </aside>
+  </div>
+</section>

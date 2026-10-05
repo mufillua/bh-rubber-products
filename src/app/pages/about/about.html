@@ -1,0 +1,96 @@
+<bh-page-header
+  title="About Us"
+  intro="Industrial product solutions focused on quality, reliability and dependable customer service."
+  [crumbs]="[{ label: 'About Us' }]"
+/>
+
+<section class="section" aria-labelledby="story-title">
+  <div class="container story">
+    <div class="story-text" bhReveal>
+      <h2 id="story-title">{{ company.name }}</h2>
+      <p class="lead">
+        {{ company.name }} provides industrial product solutions focused on quality, reliability and dependable
+        customer service.
+      </p>
+      <p>
+        From our base at {{ company.address.line1 }}, {{ company.address.city }}, we supply a range that covers knitted
+        and cut resistant gloves, heat resistant gloves and arm sleeves, leather drivers, Canadian and welders gloves,
+        welding protection, industrial workwear, and flanges for industrial piping.
+      </p>
+      <p>
+        We keep the process simple: find the product, check its details, and send us an enquiry with the code and
+        quantity. We'll come back to you with availability and pricing.
+      </p>
+      <div class="story-actions">
+        <a class="btn btn--primary" routerLink="/products">Explore Products</a>
+        <a class="btn btn--outline" routerLink="/contact">Get A Quote</a>
+      </div>
+    </div>
+
+    <div class="collage" bhReveal [revealDelay]="120" aria-hidden="true">
+      @for (src of collage; track src; let i = $index) {
+        <div class="tile" [class]="'t' + i">
+          <img [src]="src" alt="" width="640" height="640" loading="lazy" />
+        </div>
+      }
+      <div class="collage-ring">
+        @for (i of [0, 1, 2, 3, 4, 5]; track i) {
+          <i [class.accent]="i > 2"></i>
+        }
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section section--steel" aria-labelledby="why-title">
+  <div class="container">
+    <div class="section-head" bhReveal>
+      <div class="seg-rule" aria-hidden="true"><i></i><i></i><i></i><i></i></div>
+      <h2 id="why-title">What we focus on</h2>
+    </div>
+    <ul class="features" role="list">
+      @for (f of features; track f.title; let i = $index) {
+        <li bhReveal [revealDelay]="i * 80">
+          <span class="f-icon"><bh-icon [name]="f.icon" /></span>
+          <h3>{{ f.title }}</h3>
+          <p>{{ f.text }}</p>
+        </li>
+      }
+    </ul>
+  </div>
+</section>
+
+<section class="section" aria-labelledby="visit-title">
+  <div class="container visit" bhReveal>
+    <div>
+      <h2 id="visit-title">Visit or contact us</h2>
+      <p class="visit-sub">Proprietor: {{ company.owner }}</p>
+    </div>
+    <dl class="visit-grid">
+      <div>
+        <dt><bh-icon name="map-pin" /> Address</dt>
+        <dd>
+          {{ company.address.line1 }}<br />{{ company.address.city }} {{ company.address.postcode }}
+          <a class="link" [href]="company.mapsUrl" target="_blank" rel="noopener">Get directions</a>
+        </dd>
+      </div>
+      <div>
+        <dt><bh-icon name="clock" /> Shop timings</dt>
+        <dd>
+          @for (h of company.hours; track h.days) {
+            <span class="hour"><span>{{ h.days }}</span><span>{{ h.time }}</span></span>
+          }
+        </dd>
+      </div>
+      <div>
+        <dt><bh-icon name="phone" /> Phone &amp; WhatsApp</dt>
+        <dd>
+          <a class="link" [href]="enquiry.telLink()">{{ company.phoneDisplay }}</a>
+          <a class="link" [href]="enquiry.generalWhatsapp()" target="_blank" rel="noopener">Chat on WhatsApp</a>
+        </dd>
+      </div>
+    </dl>
+  </div>
+</section>
+
+<bh-cta-section />

@@ -1,0 +1,46 @@
+<section class="hero" aria-labelledby="hero-title">
+  <div class="container hero-grid">
+    <div class="copy">
+      <p class="eyebrow">Industrial Rubber Solutions</p>
+      <h1 id="hero-title">Reliable Industrial Rubber & Safety Solutions</h1>
+      <p class="lede">
+        Quality industrial products for demanding applications, backed by dependable service and supply.
+      </p>
+      <div class="actions">
+        <a class="btn btn--primary" routerLink="/products">
+          Explore Products
+          <bh-icon name="chevron-right" />
+        </a>
+        <a class="btn btn--outline" routerLink="/contact">Get A Quote</a>
+      </div>
+      <ul class="facts">
+        <li><strong>{{ productCount }}</strong> products</li>
+        <li><strong>{{ categoryCount }}</strong> categories</li>
+        <li>Enquire on WhatsApp or email</li>
+      </ul>
+    </div>
+
+    <div class="visual">
+      <div class="stage">
+        <bh-segment-ring class="ring" [animate]="true" [innerRing]="false" />
+        <a class="disc" [routerLink]="['/products', centre().slug]" [attr.aria-label]="'View ' + centre().name">
+          <img src="hero/lbw-r.webp" [alt]="centre().name" width="461" height="544" fetchpriority="high" />
+        </a>
+        @for (t of tags(); track t.code; let i = $index) {
+          <a
+            class="tag {{ t.pos }}"
+            [style.--d]="i"
+            [routerLink]="['/products', t.product.slug]"
+            [attr.aria-label]="'View ' + t.product.name"
+          >
+            <span class="tag-img"><img [src]="t.image" alt="" loading="lazy" /></span>
+            <span class="tag-text">
+              <span class="tag-code">{{ t.product.code }}</span>
+              <span class="tag-cat">{{ t.product.name }}</span>
+            </span>
+          </a>
+        }
+      </div>
+    </div>
+  </div>
+</section>

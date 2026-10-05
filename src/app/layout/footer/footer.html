@@ -1,0 +1,76 @@
+<footer class="footer">
+  <div class="seg-strip" aria-hidden="true">
+    @for (i of [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23]; track i) {
+      <i [class.accent]="i === 4 || i === 5 || i === 6 || i === 17 || i === 18 || i === 19"></i>
+    }
+  </div>
+
+  <div class="container grid">
+    <div class="brand-col">
+      <a class="brand" routerLink="/" aria-label="B H Rubber Products — home">
+        <span class="emblem-wrap"><img src="brand/bh-emblem-96.png" alt="" width="48" height="48" loading="lazy" /></span>
+        <span>
+          <span class="name">{{ company.name }}</span>
+          <span class="tag">{{ company.tagline }}</span>
+        </span>
+      </a>
+      <address class="address">
+        <bh-icon name="map-pin" />
+        <span>
+          {{ company.address.line1 }}<br />
+          {{ company.address.city }} {{ company.address.postcode }}, {{ company.address.region }}
+        </span>
+      </address>
+      <a class="directions" [href]="company.mapsUrl" target="_blank" rel="noopener">Get directions</a>
+    </div>
+
+    <nav class="col" aria-labelledby="f-quick">
+      <h2 id="f-quick">Quick links</h2>
+      <ul>
+        @for (l of quickLinks; track l.path) {
+          <li><a [routerLink]="l.path">{{ l.label }}</a></li>
+        }
+      </ul>
+    </nav>
+
+    <nav class="col" aria-labelledby="f-cats">
+      <h2 id="f-cats">Popular categories</h2>
+      <ul>
+        @for (c of categories; track c.slug) {
+          <li><a routerLink="/products" [queryParams]="{ category: c.slug }">{{ c.name }}</a></li>
+        }
+      </ul>
+    </nav>
+
+    <div class="col">
+      <h2>Contact</h2>
+      <ul class="contact">
+        <li>
+          <bh-icon name="phone" />
+          <a [href]="enquiry.telLink()">{{ company.phoneDisplay }}</a>
+        </li>
+        <li>
+          <bh-icon name="mail" />
+          <a [href]="'mailto:' + company.email">{{ company.email }}</a>
+        </li>
+        <li>
+          <bh-icon name="whatsapp" />
+          <a [href]="enquiry.generalWhatsapp()" target="_blank" rel="noopener">Chat on WhatsApp</a>
+        </li>
+      </ul>
+      <dl class="hours">
+        @for (h of company.hours; track h.days) {
+          <div>
+            <dt>{{ h.days }}</dt>
+            <dd>{{ h.time }}</dd>
+          </div>
+        }
+      </dl>
+    </div>
+  </div>
+
+  <div class="container base">
+    <p>© {{ year }} {{ company.name }}. All rights reserved. Powered by Mufaddal Maimoon</p>
+    <p>{{ company.tagline }}</p>
+  </div>
+</footer>

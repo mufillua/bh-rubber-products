@@ -1,0 +1,95 @@
+.pagination {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.pages {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  list-style: none;
+}
+
+button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  min-width: 44px;
+  height: 44px;
+  padding: 0 12px;
+  border: 1px solid var(--c-line);
+  border-radius: var(--radius-sm);
+  background: var(--c-surface);
+  color: var(--c-ink);
+  font-weight: 600;
+  font-stretch: var(--semi-wide);
+  font-variant-numeric: tabular-nums;
+  transition:
+    background-color var(--dur-fast),
+    border-color var(--dur-fast),
+    color var(--dur-fast),
+    transform var(--dur-fast) var(--ease-out);
+
+  bh-icon {
+    width: 18px;
+    height: 18px;
+  }
+
+  &:hover:not(:disabled):not(.active) {
+    border-color: var(--c-ink);
+    transform: translateY(-1px);
+  }
+
+  &:disabled {
+    opacity: 0.4;
+    cursor: not-allowed;
+  }
+}
+
+/* Active page: charcoal block with an orange underline segment, like the logo ring */
+.num.active {
+  position: relative;
+  background: var(--c-ink);
+  border-color: var(--c-ink);
+  color: #fff;
+
+  &::after {
+    content: '';
+    position: absolute;
+    left: 10px;
+    right: 10px;
+    bottom: 5px;
+    height: 3px;
+    border-radius: 1px;
+    background: var(--c-orange);
+  }
+}
+
+.gap {
+  min-width: 20px;
+  text-align: center;
+  color: var(--c-muted);
+}
+
+@media (max-width: 479px) {
+  .step-label {
+    display: none;
+  }
+
+  .step {
+    padding: 0;
+  }
+
+  .pages {
+    gap: 4px;
+  }
+
+  button {
+    min-width: 40px;
+    height: 40px;
+  }
+}

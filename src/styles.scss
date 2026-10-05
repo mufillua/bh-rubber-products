@@ -1,0 +1,559 @@
+/* ==========================================================================
+   B H Rubber Products — design system
+   Palette sampled from the logo: charcoal #1F1F1F and signal orange #E4682A,
+   softened into pastel surfaces. Type: Archivo, using its width axis —
+   expanded for display (echoing the wide "BH" wordmark), normal for text.
+   ========================================================================== */
+
+/* Archivo variable font (OFL), self-hosted: weight 100–900, width 62–125% */
+@font-face {
+  font-family: 'Archivo';
+  font-style: normal;
+  font-display: swap;
+  font-weight: 100 900;
+  font-stretch: 62% 125%;
+  src: url('/fonts/archivo-latin-ext-wdth-normal.woff2') format('woff2-variations');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+
+@font-face {
+  font-family: 'Archivo';
+  font-style: normal;
+  font-display: swap;
+  font-weight: 100 900;
+  font-stretch: 62% 125%;
+  src: url('/fonts/archivo-latin-wdth-normal.woff2') format('woff2-variations');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
+:root {
+  /* — Colour: brand — */
+  --c-ink: #1f1f1f;            /* logo charcoal: headings, primary buttons */
+  --c-ink-2: #383838;          /* body text */
+  --c-muted: #5f636a;          /* secondary text (5.9:1 on white) */
+  --c-orange: #e4682a;         /* logo orange: decorative accents, large shapes */
+  --c-orange-strong: #b9491a;  /* orange for text / filled buttons with white text (5.2:1) */
+  --c-orange-hover: #a23e14;
+  --c-peach: #fdeadc;          /* pastel orange surface */
+  --c-peach-soft: #fff6f0;     /* very light orange surface */
+  --c-peach-line: #f6d2bb;
+
+  /* — Colour: neutrals — */
+  --c-bg: #fafbfc;
+  --c-surface: #ffffff;
+  --c-steel: #f2f3f5;          /* soft neutral panels / image wells */
+  --c-steel-2: #e9ebee;
+  --c-line: #e4e6ea;
+  --c-line-strong: #d0d4da;
+
+  /* — Colour: semantic — */
+  --c-whatsapp: #127c42;       /* deep WhatsApp green, 5.4:1 with white */
+  --c-whatsapp-hover: #0e6634;
+  --c-danger: #b42318;
+  --c-focus: #e4682a;
+
+  /* — Semantic aliases (as requested: primary / secondary / accent …) — */
+  --color-primary: var(--c-ink);
+  --color-secondary: var(--c-steel);
+  --color-accent: var(--c-orange);
+  --color-background: var(--c-bg);
+  --color-surface: var(--c-surface);
+  --color-text: var(--c-ink-2);
+  --color-text-muted: var(--c-muted);
+  --color-border: var(--c-line);
+
+  /* — Shadow — */
+  --shadow-xs: 0 1px 2px rgba(31, 31, 31, 0.05);
+  --shadow-sm: 0 1px 2px rgba(31, 31, 31, 0.04), 0 2px 6px -2px rgba(31, 31, 31, 0.06);
+  --shadow-md: 0 2px 4px rgba(31, 31, 31, 0.04), 0 12px 28px -14px rgba(31, 31, 31, 0.22);
+  --shadow-lg: 0 4px 8px rgba(31, 31, 31, 0.04), 0 24px 48px -20px rgba(31, 31, 31, 0.28);
+
+  /* — Shape — */
+  --radius-sm: 6px;
+  --radius-md: 10px;
+  --radius-lg: 14px;
+  --radius-pill: 999px;
+
+  /* — Layout — */
+  --container: 1240px;
+  --gutter: clamp(16px, 4vw, 32px);
+  --header-h: 68px;
+
+  /* — Spacing scale (4px base) — */
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-5: 20px;
+  --space-6: 24px;
+  --space-8: 32px;
+  --space-10: 40px;
+  --space-12: 48px;
+  --space-16: 64px;
+  --space-20: 80px;
+  --section-y: clamp(56px, 8vw, 104px);
+
+  /* — Type — */
+  --font-sans: 'Archivo', system-ui, -apple-system, 'Segoe UI', Roboto, Arial, sans-serif;
+  --wide: 116%;          /* font-stretch for display text */
+  --semi-wide: 106%;
+  --fs-xs: 0.75rem;
+  --fs-sm: 0.875rem;
+  --fs-base: 1rem;
+  --fs-md: 1.125rem;
+  --fs-lg: 1.25rem;
+  --fs-xl: clamp(1.375rem, 1.2rem + 0.6vw, 1.625rem);
+  --fs-2xl: clamp(1.75rem, 1.45rem + 1.2vw, 2.375rem);
+  --fs-3xl: clamp(2.25rem, 1.65rem + 2.5vw, 3.5rem);
+
+  /* — Motion — */
+  --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
+  --dur-fast: 160ms;
+  --dur: 260ms;
+  --dur-slow: 600ms;
+
+  @media (min-width: 1024px) {
+    --header-h: 76px;
+  }
+}
+
+/* ---------- Reset ---------- */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+  scroll-padding-top: calc(var(--header-h) + 16px);
+}
+
+body {
+  margin: 0;
+  font-family: var(--font-sans);
+  font-size: var(--fs-base);
+  line-height: 1.6;
+  color: var(--c-ink-2);
+  background: var(--c-bg);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+}
+
+img,
+svg {
+  display: block;
+  max-width: 100%;
+}
+
+img {
+  height: auto;
+}
+
+button,
+input,
+select,
+textarea {
+  font: inherit;
+  color: inherit;
+}
+
+button {
+  cursor: pointer;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+h1,
+h2,
+h3,
+h4 {
+  margin: 0;
+  color: var(--c-ink);
+  line-height: 1.15;
+  font-weight: 700;
+  text-wrap: balance;
+}
+
+h1 {
+  font-size: var(--fs-3xl);
+  font-stretch: var(--wide);
+  letter-spacing: -0.015em;
+  line-height: 1.06;
+}
+
+h2 {
+  font-size: var(--fs-2xl);
+  font-stretch: var(--wide);
+  letter-spacing: -0.01em;
+}
+
+h3 {
+  font-size: var(--fs-lg);
+  font-stretch: var(--semi-wide);
+}
+
+p {
+  margin: 0;
+  text-wrap: pretty;
+}
+
+ul,
+ol {
+  margin: 0;
+  padding: 0;
+}
+
+:focus-visible {
+  outline: 2px solid var(--c-focus);
+  outline-offset: 3px;
+  border-radius: 4px;
+}
+
+::selection {
+  background: var(--c-peach);
+  color: var(--c-ink);
+}
+
+/* ---------- Layout helpers ---------- */
+.container {
+  width: 100%;
+  max-width: calc(var(--container) + var(--gutter) * 2);
+  margin-inline: auto;
+  padding-inline: var(--gutter);
+}
+
+.section {
+  padding-block: var(--section-y);
+}
+
+.section--steel {
+  background: var(--c-steel);
+}
+
+.section--peach {
+  background: var(--c-peach-soft);
+}
+
+.visually-hidden {
+  position: absolute !important;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+.skip-link {
+  position: absolute;
+  left: 16px;
+  top: -60px;
+  z-index: 200;
+  padding: 10px 16px;
+  background: var(--c-ink);
+  color: #fff;
+  border-radius: var(--radius-sm);
+  font-weight: 600;
+  transition: top var(--dur-fast);
+
+  &:focus {
+    top: 12px;
+  }
+}
+
+/* Section heading block: title + supporting text, left-aligned */
+.section-head {
+  display: grid;
+  gap: var(--space-3);
+  max-width: 640px;
+  margin-bottom: var(--space-10);
+
+  p {
+    color: var(--c-muted);
+    font-size: var(--fs-md);
+  }
+}
+
+.section-head--split {
+  max-width: none;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: var(--space-6);
+
+  > div {
+    display: grid;
+    gap: var(--space-3);
+    max-width: 620px;
+  }
+}
+
+/* The logo's segmented ring, reduced to a short rule. Used as a section marker. */
+.seg-rule {
+  display: flex;
+  gap: 4px;
+  height: 6px;
+
+  i {
+    width: 18px;
+    border-radius: 1px;
+    background: var(--c-ink);
+  }
+
+  i:nth-child(n + 4) {
+    background: var(--c-orange);
+  }
+}
+
+/* ---------- Buttons ---------- */
+.btn {
+  --btn-bg: var(--c-ink);
+  --btn-fg: #fff;
+  --btn-border: transparent;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  min-height: 48px;
+  padding: 0 22px;
+  border: 1px solid var(--btn-border);
+  border-radius: var(--radius-sm);
+  background: var(--btn-bg);
+  color: var(--btn-fg);
+  font-weight: 600;
+  font-size: 0.9375rem;
+  font-stretch: var(--semi-wide);
+  letter-spacing: 0.005em;
+  line-height: 1.1;
+  white-space: nowrap;
+  transition:
+    transform var(--dur-fast) var(--ease-out),
+    background-color var(--dur-fast),
+    border-color var(--dur-fast),
+    box-shadow var(--dur-fast),
+    color var(--dur-fast);
+
+  bh-icon {
+    width: 18px;
+    height: 18px;
+    flex: none;
+  }
+
+  &:hover {
+    transform: translateY(-1px);
+  }
+
+  &:active {
+    transform: translateY(0);
+  }
+}
+
+.btn--primary {
+  --btn-bg: var(--c-ink);
+
+  &:hover {
+    --btn-bg: #000;
+    box-shadow: var(--shadow-md);
+  }
+}
+
+.btn--accent {
+  --btn-bg: var(--c-orange-strong);
+
+  &:hover {
+    --btn-bg: var(--c-orange-hover);
+    box-shadow: 0 10px 24px -12px rgba(185, 73, 26, 0.6);
+  }
+}
+
+.btn--outline {
+  --btn-bg: var(--c-surface);
+  --btn-fg: var(--c-ink);
+  --btn-border: var(--c-line-strong);
+
+  &:hover {
+    --btn-border: var(--c-ink);
+  }
+}
+
+.btn--whatsapp {
+  --btn-bg: var(--c-whatsapp);
+
+  &:hover {
+    --btn-bg: var(--c-whatsapp-hover);
+    box-shadow: 0 10px 24px -12px rgba(18, 124, 66, 0.55);
+  }
+}
+
+.btn--ghost {
+  --btn-bg: transparent;
+  --btn-fg: var(--c-ink);
+  padding-inline: 4px;
+  min-height: 40px;
+
+  &:hover {
+    --btn-fg: var(--c-orange-strong);
+    transform: none;
+  }
+}
+
+.btn--sm {
+  min-height: 40px;
+  padding: 0 16px;
+  font-size: var(--fs-sm);
+}
+
+.btn--block {
+  width: 100%;
+}
+
+/* Text link with underline on hover */
+.link {
+  color: var(--c-orange-strong);
+  font-weight: 600;
+  text-decoration: underline;
+  text-decoration-color: transparent;
+  text-underline-offset: 3px;
+  transition: text-decoration-color var(--dur-fast);
+
+  &:hover {
+    text-decoration-color: currentColor;
+  }
+}
+
+/* ---------- Chips / badges ---------- */
+.chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  min-height: 30px;
+  padding: 4px 12px;
+  border-radius: var(--radius-sm);
+  background: var(--c-steel);
+  border: 1px solid var(--c-line);
+  color: var(--c-ink-2);
+  font-size: var(--fs-sm);
+  font-weight: 500;
+}
+
+.code-tag {
+  display: inline-block;
+  padding: 3px 8px;
+  border-radius: 4px;
+  background: var(--c-ink);
+  color: #fff;
+  font-size: var(--fs-xs);
+  font-weight: 600;
+  font-stretch: var(--semi-wide);
+  letter-spacing: 0.04em;
+  line-height: 1.4;
+}
+
+/* ---------- Grids ---------- */
+/* Product grid columns follow the width of the space it sits in (container query),
+   so the same component gives 4 columns on the home page, 3–4 beside the filter
+   sidebar, 3 on tablets and 2 on phones — and 12 per page always fills whole rows on desktop. */
+bh-product-grid {
+  container-type: inline-size;
+}
+
+.product-grid {
+  display: grid;
+  gap: var(--space-4);
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+@container (max-width: 339px) {
+  .product-grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+
+@container (min-width: 600px) {
+  .product-grid {
+    gap: var(--space-5);
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+@container (min-width: 900px) {
+  .product-grid {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+}
+
+/* ---------- Motion ---------- */
+@keyframes bh-fade-up {
+  from {
+    opacity: 0;
+    transform: translateY(14px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@keyframes bh-fade {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+/* Scroll reveal (see RevealDirective). Content stays visible without JS. */
+.reveal {
+  opacity: 0;
+  transform: translateY(18px);
+  transition:
+    opacity var(--dur-slow) var(--ease-out),
+    transform var(--dur-slow) var(--ease-out);
+  transition-delay: calc(var(--reveal-delay, 0) * 1ms);
+
+  &.is-visible {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+/* Route change cross-fade (Angular view transitions) */
+::view-transition-old(root),
+::view-transition-new(root) {
+  animation-duration: 220ms;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 1ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 1ms !important;
+    scroll-behavior: auto !important;
+  }
+
+  .reveal {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+/* Keep the footer clear of the product page's fixed enquiry bar on phones */
+@media (max-width: 899px) {
+  body:has(bh-product-detail .mobile-bar) bh-footer {
+    display: block;
+    padding-bottom: 72px;
+    background: var(--c-ink);
+  }
+}

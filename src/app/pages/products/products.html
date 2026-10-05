@@ -1,0 +1,164 @@
+<bh-page-header
+  [title]="category()?.name ?? 'Products'"
+  [intro]="category()?.description ?? 'Industrial gloves, protective sleeves, welding protection, workwear and flanges. Search by name, code or standard, or narrow down by category.'"
+  [crumbs]="category() ? [{ label: 'Products', link: '/products' }, { label: category()!.name }] : [{ label: 'Products' }]"
+/>
+
+<section class="catalogue">
+  <div class="container layout">
+    <!-- ============ Sidebar (desktop) ============ -->
+    <aside class="sidebar" aria-labelledby="filter-title">
+      <h2 id="filter-title" class="side-title">Categories</h2>
+      <a
+        class="side-link"
+        routerLink="/products"
+        [queryParams]="{ category: null, page: null }"
+        queryParamsHandling="merge"
+        [class.active]="!categorySlug()"
+        [attr.aria-current]="!categorySlug() ? 'true' : null"
+      >
+        <span>All products</span>
+        <span class="count">{{ totalCount }}</span>
+      </a>
+      @for (d of divisions; track d.slug) {
+        <h3 class="side-group">{{ d.name }}</h3>
+        <ul role="list">
+          @for (c of d.categories; track c.slug) {
+            <li>
+              <a
+                class="side-link"
+                routerLink="/products"
+                [queryParams]="{ category: c.slug, page: null }"
+                queryParamsHandling="merge"
+                [class.active]="categorySlug() === c.slug"
+                [attr.aria-current]="categorySlug() === c.slug ? 'true' : null"
+              >
+                <span>{{ c.name }}</span>
+                <span class="count">{{ catalog.countFor(c.slug) }}</span>
+              </a>
+            </li>
+          }
+        </ul>
+      }
+    </aside>
+
+    <!-- ============ Results ============ -->
+    <div class="main">
+      <div class="toolbar" role="search">
+        <div class="search">
+          <label for="product-search" class="visually-hidden">Search products</label>
+          <bh-icon name="search" class="search-icon" />
+          <input
+            #searchInput
+            id="product-search"
+            type="search"
+            inputmode="search"
+            autocomplete="off"
+            placeholder="Search by name, code, standard or category"
+            [value]="searchTerm()"
+            (input)="onSearch(searchInput.value)"
+            (keydown.escape)="clearSearch(searchInput)"
+          />
+          @if (searchTerm()) {
+            <button type="button" class="clear" (click)="clearSearch(searchInput)" aria-label="Clear search">
+              <bh-icon name="close" />
+            </button>
+          }
+        </div>
+
+        <div class="toolbar-row">
+          <button
+            type="button"
+            class="filter-toggle"
+            [attr.aria-expanded]="filtersOpen()"
+            aria-controls="mobile-filters"
+            (click)="toggleFilters()"
+          >
+            <bh-icon name="filter" />
+            <span>{{ category()?.name ?? 'All categories' }}</span>
+            <bh-icon name="chevron-down" class="chev" [class.up]="filtersOpen()" />
+          </button>
+
+          <label class="sort">
+            <span class="sort-label">Sort</span>
+            <select [value]="sort()" (change)="setSort($any($event.target).value)" aria-label="Sort products">
+              @for (s of sorts; track s.value) {
+                <option [value]="s.value" [selected]="s.value === sort()">{{ s.label }}</option>
+              }
+            </select>
+            <bh-icon name="chevron-down" class="sort-chev" />
+          </label>
+        </div>
+      </div>
+
+      <!-- Mobile / tablet category picker -->
+      <div id="mobile-filters" class="mobile-filters" [class.open]="filtersOpen()" [attr.inert]="filtersOpen() ? null : ''">
+        <div class="mf-inner">
+          <a
+            class="mf-chip"
+            routerLink="/products"
+            [queryParams]="{ category: null, page: null }"
+            queryParamsHandling="merge"
+            [class.active]="!categorySlug()"
+            (click)="filtersOpen.set(false)"
+            >All products <span>{{ totalCount }}</span></a
+          >
+          @for (d of divisions; track d.slug) {
+            <p class="mf-group">{{ d.name }}</p>
+            <div class="mf-chips">
+              @for (c of d.categories; track c.slug) {
+                <a
+                  class="mf-chip"
+                  routerLink="/products"
+                  [queryParams]="{ category: c.slug, page: null }"
+                  queryParamsHandling="merge"
+                  [class.active]="categorySlug() === c.slug"
+                  (click)="filtersOpen.set(false)"
+                  >{{ c.name }} <span>{{ catalog.countFor(c.slug) }}</span></a
+                >
+              }
+            </div>
+          }
+        </div>
+      </div>
+
+      <div class="meta" #resultsTop aria-live="polite">
+        <p>
+          @if (results().length) {
+            Showing <strong>{{ rangeStart() }}–{{ rangeEnd() }}</strong> of <strong>{{ results().length }}</strong>
+            {{ results().length === 1 ? 'product' : 'products' }}
+          } @else {
+            No matching products
+          }
+          @if (query()) {
+            for “<strong>{{ query() }}</strong>”
+          }
+        </p>
+        @if (query() || categorySlug()) {
+          <button type="button" class="reset" (click)="resetAll()">Clear filters</button>
+        }
+      </div>
+
+      @if (pageItems().length) {
+        <div class="results">
+          <bh-product-grid [products]="pageItems()" />
+        </div>
+        <div class="pager">
+          <bh-pagination [page]="page()" [totalPages]="totalPages()" (pageChange)="goToPage($event)" />
+        </div>
+      } @else {
+        <div class="empty">
+          <div class="empty-icon"><bh-icon name="search" /></div>
+          <h2>No products found</h2>
+          <p>Try another product name, code or category.</p>
+          <div class="empty-actions">
+            @if (query()) {
+              <button type="button" class="btn btn--outline" (click)="clearSearch(searchInput)">Clear search</button>
+            }
+            <button type="button" class="btn btn--primary" (click)="resetAll()">View all products</button>
+          </div>
+        </div>
+      }
+    </div>
+  </div>
+</section>
