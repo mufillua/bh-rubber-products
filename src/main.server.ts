@@ -1,6 +1,6 @@
 import { BootstrapContext, bootstrapApplication } from '@angular/platform-browser';
 import { App } from './app/app';
-import { config } from './app/app.config.server';
+import { appConfig as config } from './app/app.config';
 
 /** Used only at build time to prerender every page to static HTML. */
 const bootstrap = (context: BootstrapContext) => bootstrapApplication(App, config, context);
