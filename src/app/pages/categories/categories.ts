@@ -14,7 +14,7 @@ import { RevealDirective } from '../../shared/directives/reveal.directive';
   template: `
     <bh-page-header
       title="Categories"
-      [intro]="catalog.categories.length + ' categories, grouped into gloves, leather protection, workwear and flanges. Choose one to see every product in it.'"
+      [intro]="catalog.categories.length + ' categories, grouped into gloves, leather protection, workwear, safety shoes and flanges. Choose one to see every product in it.'"
       [crumbs]="[{ label: 'Categories' }]"
     />
 
@@ -60,7 +60,7 @@ export class Categories {
     inject(SeoService).set({
       title: 'Categories',
       description:
-        'Browse B H Rubber Products by category: knitted, cut resistant and heat resistant gloves, leather drivers, Canadian and welders gloves, welding protection, workwear and flanges.',
+        'Browse B H Rubber Products by category: knitted, cut resistant and heat resistant gloves, leather drivers, Canadian and welders gloves, welding protection, workwear, safety shoes and flanges.',
       path: '/categories',
     });
   }

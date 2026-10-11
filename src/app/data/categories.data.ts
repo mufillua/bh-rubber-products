@@ -15,7 +15,7 @@ export const DIVISIONS: Division[] = [
   {
     slug: 'workwear',
     name: 'Workwear',
-    description: 'Coveralls, jackets, trousers, shirts, vests and uniforms.',
+    description: 'Coveralls, jackets, trousers, shirts, vests, uniforms and safety shoes.',
   },
   {
     slug: 'piping',
@@ -116,6 +116,13 @@ export const CATEGORIES: Category[] = [
     division: 'workwear',
     description: 'Chef coat and pajama set, cotton lab coat and cotton tunic.',
     image: 'products/royal-blue-tunic.webp',
+  },
+  {
+    slug: 'safety-shoes',
+    name: 'Safety Shoes',
+    division: 'workwear',
+    description: 'Steel toe leather safety shoes to EN ISO 20345, with antistatic, oil and heat resistant PU soles.',
+    image: 'products/storm-safety-shoe.webp',
   },
   {
     slug: 'flanges',

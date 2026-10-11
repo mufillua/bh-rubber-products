@@ -17,7 +17,7 @@ export class Footer {
   readonly enquiry = inject(EnquiryService);
   private readonly catalog = inject(CatalogService);
   readonly categories = (
-    ['cut-resistant-gloves', 'drivers-gloves', 'canadian-gloves', 'welders-gloves', 'coveralls', 'flanges'] as const
+    ['cut-resistant-gloves', 'drivers-gloves', 'canadian-gloves', 'welders-gloves', 'coveralls', 'safety-shoes', 'flanges'] as const
   ).map((slug) => this.catalog.getCategory(slug)!);
   readonly year = new Date().getFullYear();
 

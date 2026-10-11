@@ -822,6 +822,47 @@ const RAW_PRODUCTS: RawProduct[] = [
     features: ['100% cotton tunic', 'Contrast piping at collar, sleeve and down pocket', 'Front closure with polyester buttons'],
     image: img('royal-blue-tunic'),
   },
+
+  /* ═══════════════ SAFETY SHOES ═══════════════ */
+  {
+    code: 'STORM', name: 'Steel Toe Leather Safety Shoe', category: 'safety-shoes',
+    shortDescription: 'S1 SRC · 200 J steel toe cap · Sizes 38–47',
+    description:
+      'Black buffalo grain leather safety shoe with a 200 J alloy steel toe cap and a direct-injection double-density PU sole that is anti-skid and oil, chemical and fuel resistant. CE and ISI certified to EN ISO 20345:2011 S1 SRC.',
+    specs: {
+      'Safety class': 'EN ISO 20345:2011 S1 SRC',
+      'Toe cap': 'Alloy steel, 200 J impact resistance',
+      Sole: 'Direct injection double density PU',
+      Upper: 'Black Barton grain buffalo leather',
+      'Antistatic (sole)': '100 kΩ – 1000 MΩ',
+      'Electrical resistance (sole)': 'Up to 11 kV',
+      'Heat resistance (sole)': 'Max 120 °C for 1 minute exposure',
+      'Heel height': '48 mm',
+      'Toe height': '30 mm',
+      Fitting: 'EE',
+      Last: '443',
+      'HSN code': '64034000',
+    },
+    sizes: ['38', '39', '40', '41', '42', '43', '44', '45', '46', '47'],
+    materials: ['Buffalo grain leather', 'Double density PU sole', 'Alloy steel toe cap', 'Nickel plated brass eyelets'],
+    colours: ['Black, with red and white accent stitching'],
+    standards: ['CE', 'ISI', 'EN ISO 20345:2011 S1 SRC'],
+    features: [
+      'Direct injection double density PU sole for enhanced safety, comfort and durability',
+      'Upper in black Barton grain buffalo leather',
+      'Nickel plated round brass eyelets',
+      'EN certified, imported, powder coated, rust proof, extra wide alloy steel toe cap with 200 J impact resistance',
+      'Anatomically shaped lasts with curved heel and rounded edges for comfort over long periods of wear',
+      'Anti-torsion system for stability and protection from ankle twisting',
+      'Imported, soft, breathable and absorbent lining with anti-bacterial treatment for odour control',
+      'Insocks with anti-bacterial properties',
+      'Energy returning heel',
+      'Red and white thread accent stitching',
+      'Free of Azo dyes; uses water based adhesives, as per European norms',
+      'Anti-skid, oil, chemical and fuel resistant sole',
+    ],
+    image: img('storm-safety-shoe'),
+  },
 ];
 
 /* ---------- build the final, typed product list ---------- */

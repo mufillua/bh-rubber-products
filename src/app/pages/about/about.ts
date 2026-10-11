@@ -41,7 +41,7 @@ export class About {
     {
       icon: 'layers',
       title: 'Product Range',
-      text: `${this.catalog.products.length} products across ${this.catalog.categories.length} categories — from seamless knitted gloves and coveralls to flanges.`,
+      text: `${this.catalog.products.length} products across ${this.catalog.categories.length} categories — from seamless knitted gloves, coveralls and safety shoes to flanges.`,
     },
     {
       icon: 'headset',
@@ -54,7 +54,7 @@ export class About {
     inject(SeoService).set({
       title: 'About Us',
       description:
-        'B H Rubber Products, 6A Clive Row, Kolkata, supplies industrial gloves, welding protection, workwear and flanges with a focus on quality, reliability and dependable service.',
+        'B H Rubber Products, 6A Clive Row, Kolkata, supplies industrial gloves, welding protection, workwear, safety shoes and flanges with a focus on quality, reliability and dependable service.',
       path: '/about',
     });
   }

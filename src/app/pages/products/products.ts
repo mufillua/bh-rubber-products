@@ -118,7 +118,7 @@ export class Products {
           title: cat ? cat.name : 'Products',
           description: cat
             ? `${cat.name} from B H Rubber Products: ${cat.description}`
-            : `Browse the B H Rubber Products catalogue of ${this.totalCount} industrial gloves, protective sleeves, welding protection, workwear and flanges.`,
+            : `Browse the B H Rubber Products catalogue of ${this.totalCount} industrial gloves, protective sleeves, welding protection, workwear, safety shoes and flanges.`,
           path: '/products' + (cat ? `?category=${cat.slug}` : '') + (page > 1 ? `${cat ? '&' : '?'}page=${page}` : ''),
         }),
       );

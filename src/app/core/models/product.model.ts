@@ -47,6 +47,7 @@ export type CategorySlug =
   | 'jackets-trousers'
   | 'shirts-tshirts-vests'
   | 'uniforms-lab-coats'
+  | 'safety-shoes'
   | 'flanges';
 
 export type DivisionSlug = 'knitted' | 'leather' | 'workwear' | 'piping';
