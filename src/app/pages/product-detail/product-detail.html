@@ -13,7 +13,7 @@
             @if (category(); as c) {
               <li>
                 <bh-icon name="chevron-right" />
-                <a routerLink="/products" [queryParams]="{ category: c.slug }">{{ c.name }}</a>
+                <a [routerLink]="['/categories', c.slug]">{{ c.name }}</a>
               </li>
             }
             <li class="current"><bh-icon name="chevron-right" /><span aria-current="page">{{ p.code ?? p.name }}</span></li>
@@ -42,7 +42,7 @@
         <!-- ============ Information ============ -->
         <div class="info">
           @if (category(); as c) {
-            <a class="cat-link" routerLink="/products" [queryParams]="{ category: c.slug }">{{ c.name }}</a>
+            <a class="cat-link" [routerLink]="['/categories', c.slug]">{{ c.name }}</a>
           }
           <h1>{{ p.name }}</h1>
           @if (p.code) {
@@ -147,7 +147,7 @@
             <div>
               <h2 id="rel-title">More {{ category()?.name }}</h2>
             </div>
-            <a class="btn btn--outline" routerLink="/products" [queryParams]="{ category: p.category }">
+            <a class="btn btn--outline" [routerLink]="['/categories', p.category]">
               View all in this category
             </a>
           </div>

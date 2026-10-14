@@ -1,7 +1,8 @@
 import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
 import { RouterLink } from '@angular/router';
+import { COMPANY } from '../../core/config/company.config';
 import { CatalogService } from '../../core/services/catalog.service';
-import { SeoService } from '../../core/services/seo.service';
+import { SeoService, businessLd, websiteLd } from '../../core/services/seo.service';
 import { CategoryCard } from '../../shared/components/category-card/category-card';
 import { CtaSection } from '../../shared/components/cta-section/cta-section';
 import { Icon } from '../../shared/components/icon/icon';
@@ -18,6 +19,7 @@ import { Hero } from './hero/hero';
 })
 export class Home {
   readonly catalog = inject(CatalogService);
+  readonly company = COMPANY;
   readonly featured = this.catalog.featured(8);
   readonly divisions = this.catalog.divisions.map((d) => ({
     ...d,
@@ -31,6 +33,6 @@ export class Home {
   ];
 
   constructor() {
-    inject(SeoService).set({ path: '/' });
+    inject(SeoService).set({ path: '/', jsonLd: [businessLd(), websiteLd()] });
   }
 }

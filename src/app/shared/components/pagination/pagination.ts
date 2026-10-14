@@ -1,4 +1,5 @@
-import { ChangeDetectionStrategy, Component, computed, input, output } from '@angular/core';
+import { ChangeDetectionStrategy, Component, computed, inject, input, output } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Icon } from '../icon/icon';
 
 type PageItem = { type: 'page'; value: number } | { type: 'gap'; key: string };
@@ -11,31 +12,32 @@ type PageItem = { type: 'page'; value: number } | { type: 'gap'; key: string };
   template: `
     @if (totalPages() > 1) {
       <nav class="pagination" aria-label="Product pages">
-        <button
-          type="button"
-          class="step"
-          [disabled]="page() <= 1"
-          (click)="go(page() - 1)"
-          aria-label="Previous page"
-        >
-          <bh-icon name="chevron-left" />
-          <span class="step-label">Previous</span>
-        </button>
+        @if (page() > 1) {
+          <a class="step" [href]="hrefFor(page() - 1)" (click)="go(page() - 1, $event)" rel="prev" aria-label="Previous page">
+            <bh-icon name="chevron-left" />
+            <span class="step-label">Previous</span>
+          </a>
+        } @else {
+          <span class="step disabled" aria-disabled="true">
+            <bh-icon name="chevron-left" />
+            <span class="step-label">Previous</span>
+          </span>
+        }
 
         <ol class="pages">
           @for (item of items(); track item.type === 'page' ? item.value : item.key) {
             @if (item.type === 'page') {
               <li>
-                <button
-                  type="button"
+                <a
                   class="num"
+                  [href]="hrefFor(item.value)"
                   [class.active]="item.value === page()"
                   [attr.aria-current]="item.value === page() ? 'page' : null"
                   [attr.aria-label]="'Page ' + item.value"
-                  (click)="go(item.value)"
+                  (click)="go(item.value, $event)"
                 >
                   {{ item.value }}
-                </button>
+                </a>
               </li>
             } @else {
               <li class="gap" aria-hidden="true">…</li>
@@ -43,16 +45,17 @@ type PageItem = { type: 'page'; value: number } | { type: 'gap'; key: string };
           }
         </ol>
 
-        <button
-          type="button"
-          class="step"
-          [disabled]="page() >= totalPages()"
-          (click)="go(page() + 1)"
-          aria-label="Next page"
-        >
-          <span class="step-label">Next</span>
-          <bh-icon name="chevron-right" />
-        </button>
+        @if (page() < totalPages()) {
+          <a class="step" [href]="hrefFor(page() + 1)" (click)="go(page() + 1, $event)" rel="next" aria-label="Next page">
+            <span class="step-label">Next</span>
+            <bh-icon name="chevron-right" />
+          </a>
+        } @else {
+          <span class="step disabled" aria-disabled="true">
+            <span class="step-label">Next</span>
+            <bh-icon name="chevron-right" />
+          </span>
+        }
       </nav>
     }
   `,
@@ -79,7 +82,24 @@ export class Pagination {
     return out;
   });
 
-  go(p: number): void {
+  private readonly router = inject(Router);
+  private readonly route = inject(ActivatedRoute);
+
+  /** Real link for each page, so search engines can follow pagination. */
+  hrefFor(p: number): string {
+    return this.router.serializeUrl(
+      this.router.createUrlTree([], {
+        relativeTo: this.route,
+        queryParams: { page: p > 1 ? p : null },
+        queryParamsHandling: 'merge',
+      }),
+    );
+  }
+
+  /** Plain clicks are handled in-app (smooth scroll); ctrl/cmd-click still opens a new tab. */
+  go(p: number, event?: MouseEvent): void {
+    if (event && (event.button !== 0 || event.ctrlKey || event.metaKey || event.shiftKey || event.altKey)) return;
+    event?.preventDefault();
     if (p >= 1 && p <= this.totalPages() && p !== this.page()) this.pageChange.emit(p);
   }
 }

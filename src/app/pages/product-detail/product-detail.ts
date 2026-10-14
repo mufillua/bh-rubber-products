@@ -2,7 +2,7 @@ import { Location } from '@angular/common';
 import { ChangeDetectionStrategy, Component, computed, effect, inject, input, untracked } from '@angular/core';
 import { Router, RouterLink } from '@angular/router';
 import { CatalogService } from '../../core/services/catalog.service';
-import { SeoService } from '../../core/services/seo.service';
+import { SeoService, breadcrumbLd } from '../../core/services/seo.service';
 import { EmailButton, WhatsappButton } from '../../shared/components/enquiry-buttons/enquiry-buttons';
 import { Icon } from '../../shared/components/icon/icon';
 import { ProductGrid } from '../../shared/components/product-grid/product-grid';
@@ -46,15 +46,23 @@ export class ProductDetail {
       const cat = this.category();
       untracked(() => {
         if (!p) {
-          this.seo.set({ title: 'Product not found', path: `/products/${this.slug()}` });
+          this.seo.set({ title: 'Product not found', path: `/products/${this.slug()}`, noindex: true });
           return;
         }
         const name = p.code ? `${p.name} (${p.code})` : p.name;
         this.seo.set({
           title: name,
-          description: `${p.description} ${cat ? cat.name + ' from' : 'From'} B H Rubber Products — enquire on WhatsApp or email.`,
+          description: `${p.code ? p.code + ': ' : ''}${p.description} Supplied by B H Rubber Products, Kolkata — enquire on WhatsApp or email for price and availability.`,
           path: `/products/${p.slug}`,
           image: p.image,
+          jsonLd: [
+            breadcrumbLd([
+              { name: 'Home', path: '/' },
+              { name: 'Products', path: '/products' },
+              ...(cat ? [{ name: cat.name, path: `/categories/${cat.slug}` }] : []),
+              { name: p.name, path: `/products/${p.slug}` },
+            ]),
+          ],
         });
       });
     });
@@ -67,7 +75,8 @@ export class ProductDetail {
     if (cameFromSite) {
       this.location.back();
     } else {
-      this.router.navigate(['/products'], { queryParams: { category: this.product()?.category ?? null } });
+      const cat = this.product()?.category;
+      this.router.navigate(cat ? ['/categories', cat] : ['/products']);
     }
   }
 }

@@ -32,6 +32,6 @@ import { SegmentRing } from '../../shared/components/segment-ring/segment-ring';
 })
 export class NotFound {
   constructor() {
-    inject(SeoService).set({ title: 'Page not found' });
+    inject(SeoService).set({ title: 'Page not found', noindex: true });
   }
 }

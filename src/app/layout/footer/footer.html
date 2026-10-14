@@ -7,7 +7,7 @@
 
   <div class="container grid">
     <div class="brand-col">
-      <a class="brand" routerLink="/" aria-label="B H Rubber Products — home">
+      <a class="brand" routerLink="/">
         <span class="emblem-wrap"><img src="brand/bh-emblem-96.png" alt="" width="48" height="48" loading="lazy" /></span>
         <span>
           <span class="name">{{ company.name }}</span>
@@ -37,7 +37,7 @@
       <h2 id="f-cats">Popular categories</h2>
       <ul>
         @for (c of categories; track c.slug) {
-          <li><a routerLink="/products" [queryParams]="{ category: c.slug }">{{ c.name }}</a></li>
+          <li><a [routerLink]="['/categories', c.slug]">{{ c.name }}</a></li>
         }
       </ul>
     </nav>

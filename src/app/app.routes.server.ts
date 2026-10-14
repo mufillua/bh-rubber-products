@@ -1,4 +1,5 @@
 import { RenderMode, ServerRoute } from '@angular/ssr';
+import { CATEGORIES } from './data/categories.data';
 import { PRODUCTS } from './data/products.data';
 
 /**
@@ -13,6 +14,13 @@ export const serverRoutes: ServerRoute[] = [
     renderMode: RenderMode.Prerender,
     async getPrerenderParams() {
       return PRODUCTS.map((p) => ({ slug: p.slug }));
+    },
+  },
+  {
+    path: 'categories/:slug',
+    renderMode: RenderMode.Prerender,
+    async getPrerenderParams() {
+      return CATEGORIES.map((c) => ({ slug: c.slug }));
     },
   },
   { path: '**', renderMode: RenderMode.Prerender },

@@ -14,7 +14,9 @@ import { Icon } from '../icon/icon';
     <article class="card">
       <a class="media" [routerLink]="['/products', product().slug]" tabindex="-1" aria-hidden="true">
         <img
-          [src]="product().image"
+          [src]="'thumbs/' + product().image"
+          [attr.srcset]="'thumbs/' + product().image + ' 320w, ' + product().image + ' 640w'"
+          sizes="(max-width: 639px) 46vw, (max-width: 1023px) 31vw, 280px"
           [alt]="product().name"
           width="640"
           height="640"

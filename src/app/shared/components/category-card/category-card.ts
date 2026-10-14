@@ -9,9 +9,9 @@ import { Icon } from '../icon/icon';
   imports: [RouterLink, Icon],
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: `
-    <a class="card" [routerLink]="['/products']" [queryParams]="{ category: category().slug }">
+    <a class="card" [routerLink]="['/categories', category().slug]">
       <span class="thumb">
-        <img [src]="category().image" alt="" width="640" height="640" loading="lazy" decoding="async" />
+        <img [src]="'thumbs/' + category().image" alt="" width="320" height="320" loading="lazy" decoding="async" />
       </span>
       <span class="body">
         <span class="name">{{ category().name }}</span>

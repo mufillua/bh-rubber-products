@@ -3,9 +3,11 @@
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
+    "prestart": "npm run sitemap",
     "start": "ng serve",
-    "build": "ng build",
-    "watch": "ng build --watch --configuration development"
+    "build": "npm run sitemap && ng build && node scripts/postbuild.mjs",
+    "watch": "ng build --watch --configuration development",
+    "sitemap": "node scripts/generate-sitemap.mjs"
   },
   "prettier": {
     "printWidth": 100,
@@ -26,6 +28,7 @@
     "@angular/core": "^20.3.0",
     "@angular/forms": "^20.3.0",
     "@angular/platform-browser": "^20.3.0",
+    "@angular/platform-server": "^20.3.33",
     "@angular/router": "^20.3.0",
     "@angular/ssr": "^20.3.38",
     "rxjs": "~7.8.0",
@@ -36,6 +39,8 @@
     "@angular/build": "20.3.37",
     "@angular/cli": "20.3.37",
     "@angular/compiler-cli": "^20.3.0",
+    "esbuild": "^0.28.1",
+    "sharp": "^0.34.5",
     "typescript": "~5.9.2"
   }
 }

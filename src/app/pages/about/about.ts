@@ -3,7 +3,7 @@ import { RouterLink } from '@angular/router';
 import { COMPANY } from '../../core/config/company.config';
 import { CatalogService } from '../../core/services/catalog.service';
 import { EnquiryService } from '../../core/services/enquiry.service';
-import { SeoService } from '../../core/services/seo.service';
+import { SeoService, breadcrumbLd, businessLd } from '../../core/services/seo.service';
 import { CtaSection } from '../../shared/components/cta-section/cta-section';
 import { Icon, IconName } from '../../shared/components/icon/icon';
 import { PageHeader } from '../../shared/components/page-header/page-header';
@@ -56,6 +56,7 @@ export class About {
       description:
         'B H Rubber Products, 6A Clive Row, Kolkata, supplies industrial gloves, welding protection, workwear, safety shoes and flanges with a focus on quality, reliability and dependable service.',
       path: '/about',
+      jsonLd: [businessLd(), breadcrumbLd([{ name: 'Home', path: '/' }, { name: 'About Us', path: '/about' }])],
     });
   }
 }

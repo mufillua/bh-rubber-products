@@ -31,9 +31,8 @@
             class="tag {{ t.pos }}"
             [style.--d]="i"
             [routerLink]="['/products', t.product.slug]"
-            [attr.aria-label]="'View ' + t.product.name"
           >
-            <span class="tag-img"><img [src]="t.image" alt="" loading="lazy" /></span>
+            <span class="tag-img"><img [src]="'thumbs/' + t.image" alt="" width="48" height="48" loading="lazy" /></span>
             <span class="tag-text">
               <span class="tag-code">{{ t.product.code }}</span>
               <span class="tag-cat">{{ t.product.name }}</span>

@@ -4,7 +4,7 @@ import { ActivatedRoute } from '@angular/router';
 import { COMPANY } from '../../core/config/company.config';
 import { CatalogService } from '../../core/services/catalog.service';
 import { EnquiryService, QuoteRequest } from '../../core/services/enquiry.service';
-import { SeoService } from '../../core/services/seo.service';
+import { SeoService, breadcrumbLd, businessLd } from '../../core/services/seo.service';
 import { Icon } from '../../shared/components/icon/icon';
 import { PageHeader } from '../../shared/components/page-header/page-header';
 
@@ -52,10 +52,11 @@ export class Contact {
 
   constructor() {
     inject(SeoService).set({
-      title: 'Contact / Get A Quote',
+      title: 'Contact & Get A Quote — Clive Row, Kolkata',
       description:
-        'Request a quote from B H Rubber Products, 6A Clive Row, Kolkata. Call, WhatsApp or email us with the product and quantity you need.',
+        `Request a quote from ${COMPANY.name}, ${COMPANY.address.line1}, ${COMPANY.address.city} ${COMPANY.address.postcode}. Call ${COMPANY.phoneDisplay}, WhatsApp or email us with the product and quantity you need.`,
       path: '/contact',
+      jsonLd: [businessLd(), breadcrumbLd([{ name: 'Home', path: '/' }, { name: 'Contact', path: '/contact' }])],
     });
 
     // /contact?product=<slug> pre-fills the requirement

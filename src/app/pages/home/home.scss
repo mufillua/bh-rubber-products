@@ -118,3 +118,48 @@
   font-stretch: var(--wide);
   box-shadow: 0 0 0 4px var(--c-peach);
 }
+
+/* ---------- What we supply ---------- */
+.range-section {
+  padding-bottom: 0;
+}
+
+.range {
+  display: grid;
+  gap: 18px;
+
+  @media (min-width: 1024px) {
+    grid-template-columns: minmax(0, 0.8fr) minmax(0, 1.4fr);
+    gap: 64px;
+  }
+
+  h2 {
+    font-size: var(--fs-xl);
+  }
+}
+
+.range-copy {
+  display: grid;
+  gap: 14px;
+  max-width: 68ch;
+  color: var(--c-ink-2);
+
+  a {
+    color: var(--c-ink);
+    font-weight: 600;
+    text-decoration: underline;
+    text-decoration-color: var(--c-peach-line);
+    text-decoration-thickness: 2px;
+    text-underline-offset: 3px;
+    transition: text-decoration-color var(--dur-fast), color var(--dur-fast);
+
+    &:hover {
+      color: var(--c-orange-strong);
+      text-decoration-color: currentColor;
+    }
+  }
+
+  .nowrap {
+    white-space: nowrap;
+  }
+}

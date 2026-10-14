@@ -22,7 +22,6 @@ export const COMPANY = {
    */
   whatsappNumber: '919830164487',
 
-  /** ⚠ PLACEHOLDER — replace with the real business email address */
   email: 'bhrpkol@gmail.com',
 
   address: {
@@ -41,13 +40,18 @@ export const COMPANY = {
 
   mapsUrl: 'https://www.google.com/maps/search/?api=1&query=6A%2C%20Clive%20Row%2C%20Kolkata%20700001',
 
-  /** ⚠ PLACEHOLDER — set to the live domain once known (used for canonical / OG tags) */
+  /**
+   * Live domain — the ONE address search engines should index (no trailing slash).
+   * Used for canonical links, structured data, social previews, sitemap.xml and
+   * robots.txt. In Vercel → Domains, make bhrubberproducts.com redirect to this.
+   */
   siteUrl: 'https://www.bhrubberproducts.com',
 
   seo: {
-    defaultTitle: 'B H Rubber Products | Industrial Rubber Solutions',
+    /** Home page title — business name first, then what people search for, then the city. */
+    defaultTitle: 'B H Rubber Products, Kolkata | Industrial Gloves, Safety Shoes & Flanges',
     defaultDescription:
-      'B H Rubber Products provides industrial product solutions with a focus on quality, reliability and dependable service.',
+      'B H Rubber Products, Clive Row, Kolkata: cut resistant, heat resistant, leather and welding gloves, safety shoes, coveralls, workwear and industrial flanges. Enquire on WhatsApp.',
     ogImage: 'brand/og-image.jpg',
   },
 } as const;

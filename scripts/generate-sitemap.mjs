@@ -4,6 +4,7 @@
  *   • public/robots.txt
  *   • public/share/products/…jpg — 1200×630 JPG link-preview images for every
  *     product (WhatsApp and some social apps don't reliably preview WebP)
+ *   • public/thumbs/… — small WebP thumbnails used by product cards and grids
  *
  *   npm run sitemap        (also runs automatically before `npm run build`)
  *
@@ -35,28 +36,34 @@ const { PRODUCTS, CATEGORIES, COMPANY } = await import(pathToFileURL(outfile).hr
 rmSync(tmp, { recursive: true, force: true });
 
 const site = COMPANY.siteUrl.replace(/\/+$/, '');
-const today = new Date().toISOString().slice(0, 10);
 const xmlEscape = (s) => s.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
 
+// Each page with the photos it shows, so product photos can appear in Google Images.
+// (No <lastmod>: a date stamped on every build tells search engines nothing.)
 const pages = [
-  { path: '/', priority: '1.0', changefreq: 'weekly' },
-  { path: '/products', priority: '0.9', changefreq: 'weekly' },
-  { path: '/categories', priority: '0.8', changefreq: 'monthly' },
-  ...CATEGORIES.map((c) => ({ path: `/products?category=${c.slug}`, priority: '0.8', changefreq: 'weekly' })),
-  ...PRODUCTS.map((p) => ({ path: `/products/${p.slug}`, priority: '0.7', changefreq: 'monthly' })),
-  { path: '/about', priority: '0.5', changefreq: 'yearly' },
-  { path: '/contact', priority: '0.6', changefreq: 'yearly' },
+  { path: '/' },
+  { path: '/products' },
+  { path: '/categories', images: CATEGORIES.map((c) => c.image) },
+  ...CATEGORIES.map((c) => ({
+    path: `/categories/${c.slug}`,
+    images: PRODUCTS.filter((p) => p.category === c.slug).slice(0, 12).map((p) => p.image),
+  })),
+  ...PRODUCTS.map((p) => ({ path: `/products/${p.slug}`, images: [p.image] })),
+  { path: '/about' },
+  { path: '/contact' },
 ];
 
 const xml =
   `<?xml version="1.0" encoding="UTF-8"?>\n` +
-  `<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n` +
+  `<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"\n` +
+  `        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">\n` +
   pages
-    .map(
-      (p) =>
-        `  <url>\n    <loc>${xmlEscape(site + p.path)}</loc>\n    <lastmod>${today}</lastmod>\n` +
-        `    <changefreq>${p.changefreq}</changefreq>\n    <priority>${p.priority}</priority>\n  </url>`,
-    )
+    .map((p) => {
+      const imgs = [...new Set(p.images ?? [])]
+        .map((i) => `    <image:image><image:loc>${xmlEscape(`${site}/${i}`)}</image:loc></image:image>\n`)
+        .join('');
+      return `  <url>\n    <loc>${xmlEscape(site + p.path)}</loc>\n${imgs}  </url>`;
+    })
     .join('\n') +
   `\n</urlset>\n`;
 
@@ -82,6 +89,25 @@ for (const p of PRODUCTS) {
   made++;
 }
 console.log(`share images: ${made} generated, ${PRODUCTS.length - made} up to date`);
+
+// Thumbnails: 320px product photos for cards/grids, 160px hero tags (full-size photos stay for product pages).
+import { readdirSync } from 'node:fs';
+const thumbJobs = [
+  ...readdirSync(join(root, 'public/products'), { recursive: true })
+    .filter((f) => f.endsWith('.webp'))
+    .map((f) => ({ rel: `products/${f}`, width: 320 })),
+  ...readdirSync(join(root, 'public/hero')).filter((f) => f.endsWith('.webp')).map((f) => ({ rel: `hero/${f}`, width: 160 })),
+];
+let thumbs = 0;
+for (const { rel, width } of thumbJobs) {
+  const src = join(root, 'public', rel);
+  const dest = join(root, 'public/thumbs', rel);
+  if (existsSync(dest) && statSync(dest).mtimeMs >= statSync(src).mtimeMs) continue;
+  mkdirSync(dirname(dest), { recursive: true });
+  await sharp(src).resize({ width, withoutEnlargement: true }).webp({ quality: 80 }).toFile(dest);
+  thumbs++;
+}
+console.log(`thumbnails: ${thumbs} generated, ${thumbJobs.length - thumbs} up to date`);
 
 writeFileSync(join(root, 'public/sitemap.xml'), xml);
 writeFileSync(join(root, 'public/robots.txt'), robots);

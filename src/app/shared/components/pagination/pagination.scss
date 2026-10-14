@@ -13,7 +13,8 @@
   list-style: none;
 }
 
-button {
+.step,
+.num {
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -39,12 +40,12 @@ button {
     height: 18px;
   }
 
-  &:hover:not(:disabled):not(.active) {
+  &:hover:not(.disabled):not(.active) {
     border-color: var(--c-ink);
     transform: translateY(-1px);
   }
 
-  &:disabled {
+  &.disabled {
     opacity: 0.4;
     cursor: not-allowed;
   }
@@ -88,7 +89,8 @@ button {
     gap: 4px;
   }
 
-  button {
+  .step,
+  .num {
     min-width: 40px;
     height: 40px;
   }

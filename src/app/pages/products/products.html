@@ -1,6 +1,6 @@
 <bh-page-header
-  [title]="category()?.name ?? 'Products'"
-  [intro]="category()?.description ?? 'Industrial gloves, protective sleeves, welding protection, workwear, safety shoes and flanges. Search by name, code or standard, or narrow down by category.'"
+  [title]="unknownCategory() ? 'Category not found' : (category()?.name ?? 'Products')"
+  [intro]="intro()"
   [crumbs]="category() ? [{ label: 'Products', link: '/products' }, { label: category()!.name }] : [{ label: 'Products' }]"
 />
 
@@ -12,7 +12,7 @@
       <a
         class="side-link"
         routerLink="/products"
-        [queryParams]="{ category: null, page: null }"
+        [queryParams]="{ page: null }"
         queryParamsHandling="merge"
         [class.active]="!categorySlug()"
         [attr.aria-current]="!categorySlug() ? 'true' : null"
@@ -27,8 +27,8 @@
             <li>
               <a
                 class="side-link"
-                routerLink="/products"
-                [queryParams]="{ category: c.slug, page: null }"
+                [routerLink]="['/categories', c.slug]"
+                [queryParams]="{ page: null }"
                 queryParamsHandling="merge"
                 [class.active]="categorySlug() === c.slug"
                 [attr.aria-current]="categorySlug() === c.slug ? 'true' : null"
@@ -97,7 +97,7 @@
           <a
             class="mf-chip"
             routerLink="/products"
-            [queryParams]="{ category: null, page: null }"
+            [queryParams]="{ page: null }"
             queryParamsHandling="merge"
             [class.active]="!categorySlug()"
             (click)="filtersOpen.set(false)"
@@ -109,8 +109,8 @@
               @for (c of d.categories; track c.slug) {
                 <a
                   class="mf-chip"
-                  routerLink="/products"
-                  [queryParams]="{ category: c.slug, page: null }"
+                  [routerLink]="['/categories', c.slug]"
+                  [queryParams]="{ page: null }"
                   queryParamsHandling="merge"
                   [class.active]="categorySlug() === c.slug"
                   (click)="filtersOpen.set(false)"
@@ -141,6 +141,7 @@
 
       @if (pageItems().length) {
         <div class="results">
+          <h2 class="visually-hidden">{{ category()?.name ?? 'All products' }}</h2>
           <bh-product-grid [products]="pageItems()" />
         </div>
         <div class="pager">

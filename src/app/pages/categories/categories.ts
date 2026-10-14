@@ -1,7 +1,7 @@
 import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
 import { RouterLink } from '@angular/router';
 import { CatalogService } from '../../core/services/catalog.service';
-import { SeoService } from '../../core/services/seo.service';
+import { SeoService, breadcrumbLd } from '../../core/services/seo.service';
 import { Icon } from '../../shared/components/icon/icon';
 import { PageHeader } from '../../shared/components/page-header/page-header';
 import { CtaSection } from '../../shared/components/cta-section/cta-section';
@@ -28,9 +28,9 @@ import { RevealDirective } from '../../shared/directives/reveal.directive';
           <ul class="tiles" role="list">
             @for (c of d.categories; track c.slug; let i = $index) {
               <li bhReveal [revealDelay]="i * 60">
-                <a class="tile" routerLink="/products" [queryParams]="{ category: c.slug }">
+                <a class="tile" [routerLink]="['/categories', c.slug]">
                   <span class="tile-img">
-                    <img [src]="c.image" alt="" width="640" height="640" loading="lazy" decoding="async" />
+                    <img [src]="'thumbs/' + c.image" [attr.srcset]="'thumbs/' + c.image + ' 320w, ' + c.image + ' 640w'" sizes="(max-width: 559px) 90vw, 300px" alt="" width="640" height="640" loading="lazy" decoding="async" />
                   </span>
                   <span class="tile-body">
                     <span class="tile-top">
@@ -58,10 +58,11 @@ export class Categories {
 
   constructor() {
     inject(SeoService).set({
-      title: 'Categories',
+      title: 'Product Categories — Gloves, Safety Shoes, Workwear & Flanges',
       description:
         'Browse B H Rubber Products by category: knitted, cut resistant and heat resistant gloves, leather drivers, Canadian and welders gloves, welding protection, workwear, safety shoes and flanges.',
       path: '/categories',
+      jsonLd: [breadcrumbLd([{ name: 'Home', path: '/' }, { name: 'Categories', path: '/categories' }])],
     });
   }
 }

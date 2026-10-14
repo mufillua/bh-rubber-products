@@ -28,7 +28,7 @@ export class Header {
 
   readonly links = [
     { label: 'Products', path: '/products', exact: false },
-    { label: 'Categories', path: '/categories', exact: true },
+    { label: 'Categories', path: '/categories', exact: false },
     { label: 'About Us', path: '/about', exact: true },
   ];
 

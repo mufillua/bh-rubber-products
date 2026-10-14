@@ -15,7 +15,7 @@ import { ActivatedRoute, Params, Router, RouterLink } from '@angular/router';
 import { debounceTime, distinctUntilChanged, map, skip } from 'rxjs';
 import { CategorySlug } from '../../core/models/product.model';
 import { CatalogService, SortOption } from '../../core/services/catalog.service';
-import { SeoService } from '../../core/services/seo.service';
+import { SeoService, breadcrumbLd } from '../../core/services/seo.service';
 import { Icon } from '../../shared/components/icon/icon';
 import { PageHeader } from '../../shared/components/page-header/page-header';
 import { Pagination } from '../../shared/components/pagination/pagination';
@@ -50,20 +50,35 @@ export class Products {
 
   /* ---------- State, read from the URL so it survives refresh / back ---------- */
   private readonly params = toSignal(this.route.queryParamMap, { requireSync: true });
+  /** Category from the path on /categories/:slug (null on /products). */
+  private readonly pathSlug = toSignal(this.route.paramMap.pipe(map((p) => p.get('slug'))), { requireSync: true });
+  /** True on /categories/<slug> when the slug isn't a real category. */
+  readonly unknownCategory = computed(() => !!this.pathSlug() && !this.catalog.isCategory(this.pathSlug()));
 
   readonly query = computed(() => (this.params().get('q') ?? '').trim());
   readonly categorySlug = computed<CategorySlug | null>(() => {
-    const c = this.params().get('category');
+    const c = this.pathSlug();
     return this.catalog.isCategory(c) ? c : null;
   });
   readonly category = computed(() => this.catalog.getCategory(this.categorySlug()));
+
+  /** Page intro: category description plus where it's supplied from (useful to visitors and search engines). */
+  readonly intro = computed(() => {
+    if (this.unknownCategory()) return 'That category doesn’t exist. Browse all products or pick a category below.';
+    const cat = this.category();
+    return cat
+      ? `${cat.description} Supplied from Clive Row, Kolkata — enquire on WhatsApp or email for availability and pricing.`
+      : 'Industrial gloves, protective sleeves, welding protection, workwear, safety shoes and flanges, supplied from Clive Row, Kolkata. Search by name, code or standard, or narrow down by category.';
+  });
   readonly sort = computed<SortOption>(() => {
     const s = this.params().get('sort') as SortOption | null;
     return SORTS.some((o) => o.value === s) ? s! : 'catalogue';
   });
 
   readonly results = computed(() =>
-    this.catalog.query({ search: this.query(), category: this.categorySlug(), sort: this.sort() }),
+    this.unknownCategory()
+      ? []
+      : this.catalog.query({ search: this.query(), category: this.categorySlug(), sort: this.sort() }),
   );
   readonly totalPages = computed(() => Math.max(1, Math.ceil(this.results().length / PAGE_SIZE)));
   readonly page = computed(() => {
@@ -95,6 +110,9 @@ export class Products {
         takeUntilDestroyed(destroyRef),
       )
       .subscribe((q) => {
+        // Skip if this value is already in the URL (or was just cleared by a button),
+        // otherwise a late debounce could undo a navigation the visitor just made.
+        if (q === this.lastSentQuery) return;
         this.lastSentQuery = q;
         this.update({ q: q || null }, true);
       });
@@ -110,18 +128,44 @@ export class Products {
       });
     });
 
+    // Old links like /products?category=flanges now live at /categories/flanges.
+    const legacy = this.route.snapshot.queryParamMap.get('category');
+    if (!this.pathSlug() && this.catalog.isCategory(legacy)) {
+      this.router.navigate(['/categories', legacy], {
+        queryParams: { category: null },
+        queryParamsHandling: 'merge',
+        replaceUrl: true,
+      });
+    }
+
     effect(() => {
       const cat = this.category();
       const page = this.page();
-      untracked(() =>
+      const searching = !!this.query();
+      const unknown = this.unknownCategory();
+      untracked(() => {
+        if (unknown) {
+          this.seo.set({ title: 'Category not found', path: `/categories/${this.pathSlug()}`, noindex: true });
+          return;
+        }
+        const base = cat ? `/categories/${cat.slug}` : '/products';
+        const crumbs = [
+          { name: 'Home', path: '/' },
+          { name: 'Products', path: '/products' },
+          ...(cat ? [{ name: cat.name, path: base }] : []),
+        ];
         this.seo.set({
-          title: cat ? cat.name : 'Products',
+          title: cat ? `${cat.name} Supplier in Kolkata` : 'Industrial Gloves, Safety Shoes, Workwear & Flanges',
           description: cat
-            ? `${cat.name} from B H Rubber Products: ${cat.description}`
-            : `Browse the B H Rubber Products catalogue of ${this.totalCount} industrial gloves, protective sleeves, welding protection, workwear, safety shoes and flanges.`,
-          path: '/products' + (cat ? `?category=${cat.slug}` : '') + (page > 1 ? `${cat ? '&' : '?'}page=${page}` : ''),
-        }),
-      );
+            ? `${cat.description} ${this.catalog.countFor(cat.slug)} products from B H Rubber Products, Clive Row, Kolkata — enquire on WhatsApp or email for price and availability.`
+            : `Browse ${this.totalCount} industrial products from B H Rubber Products, Kolkata: cut resistant, heat resistant, leather and welding gloves, safety shoes, coveralls, workwear and flanges.`,
+          path: base + (page > 1 ? `?page=${page}` : ''),
+          image: cat?.image,
+          // Internal search results shouldn't be indexed; the products themselves are.
+          noindex: searching,
+          jsonLd: [breadcrumbLd(crumbs)],
+        });
+      });
     });
   }
 
@@ -156,7 +200,7 @@ export class Products {
   resetAll(): void {
     this.searchTerm.set('');
     this.lastSentQuery = '';
-    this.router.navigate([], { relativeTo: this.route, queryParams: {} });
+    this.router.navigate(['/products']);
   }
 
   /** Merge params into the URL. Filter/search changes always reset to page 1. */
