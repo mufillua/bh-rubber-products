@@ -2,6 +2,7 @@ import { Location } from '@angular/common';
 import { ChangeDetectionStrategy, Component, computed, effect, inject, input, untracked } from '@angular/core';
 import { Router, RouterLink } from '@angular/router';
 import { CatalogService } from '../../core/services/catalog.service';
+import { explainStandards } from '../../core/utils/standards';
 import { SeoService, breadcrumbLd } from '../../core/services/seo.service';
 import { EmailButton, WhatsappButton } from '../../shared/components/enquiry-buttons/enquiry-buttons';
 import { Icon } from '../../shared/components/icon/icon';
@@ -29,6 +30,9 @@ export class ProductDetail {
     const p = this.product();
     return p ? this.catalog.related(p, 4) : [];
   });
+
+  /** Plain-English breakdown of the product's EN 388 / EN 407 / EN ISO 20345 etc. ratings. */
+  readonly standardsExplained = computed(() => explainStandards(this.product()?.standards));
 
   /** Spec rows shown in the table: the product's specifications plus its key facts. */
   readonly specRows = computed(() => {

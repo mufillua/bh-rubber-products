@@ -302,6 +302,25 @@
   }
 }
 
+.std-explain {
+  margin-top: 20px;
+
+  h3 {
+    font-size: 0.9375rem;
+  }
+
+  h4 {
+    margin: 16px 0 4px;
+    font-size: var(--fs-sm);
+  }
+
+  p {
+    margin-bottom: 10px;
+    color: var(--c-muted);
+    font-size: var(--fs-sm);
+  }
+}
+
 .features {
   display: grid;
   gap: 10px;

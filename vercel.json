@@ -5,18 +5,58 @@
   "outputDirectory": "dist/bh-rubber-products/browser",
   "cleanUrls": true,
   "trailingSlash": false,
+  "redirects": [
+    {
+      "source": "/products",
+      "has": [
+        {
+          "type": "query",
+          "key": "category",
+          "value": "(?<cat>[a-z0-9-]+)"
+        }
+      ],
+      "destination": "https://www.bhrubberproducts.com/categories/:cat",
+      "permanent": true
+    },
+    {
+      "source": "/:path*",
+      "has": [
+        {
+          "type": "host",
+          "value": "bhrubberproducts.com"
+        }
+      ],
+      "destination": "https://www.bhrubberproducts.com/:path*",
+      "permanent": true
+    }
+  ],
   "headers": [
     {
       "source": "/(main|chunk|polyfills|styles)-(.*)",
-      "headers": [{ "key": "Cache-Control", "value": "public, max-age=31536000, immutable" }]
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=31536000, immutable"
+        }
+      ]
     },
     {
       "source": "/fonts/(.*)",
-      "headers": [{ "key": "Cache-Control", "value": "public, max-age=31536000, immutable" }]
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=31536000, immutable"
+        }
+      ]
     },
     {
       "source": "/(.*)",
-      "headers": [{ "key": "X-Content-Type-Options", "value": "nosniff" }]
+      "headers": [
+        {
+          "key": "X-Content-Type-Options",
+          "value": "nosniff"
+        }
+      ]
     }
   ]
 }

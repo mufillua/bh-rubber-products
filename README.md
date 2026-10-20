@@ -16,9 +16,14 @@ npm run sitemap    # only regenerate sitemap.xml, robots.txt, share images and t
 changes: build `npm run build`, output `dist/bh-rubber-products/browser`, clean URLs, no trailing
 slash, real 404s, and long caching for fonts and hashed JS/CSS.
 
-One dashboard setting matters for search: **Vercel → Project → Settings → Domains**. Set
-`www.bhrubberproducts.com` as the primary domain and make `bhrubberproducts.com` **redirect (308)
-to it**. Right now both addresses serve the site, which splits ranking between two copies.
+It also holds two permanent redirects, so every page has exactly one address:
+
+- `bhrubberproducts.com/…` → `https://www.bhrubberproducts.com/…` (the same page on www)
+- old category links `/products?category=<name>` → `/categories/<name>`
+
+In **Vercel → Project → Settings → Domains**, keep `www.bhrubberproducts.com` as the primary
+domain. Setting `bhrubberproducts.com` to redirect to www there as well is fine, but **never** set
+www to redirect to the bare domain: that would loop with the rule above.
 
 ## Where to change things
 
@@ -28,6 +33,8 @@ to it**. Right now both addresses serve the site, which splits ranking between t
 | Products (names, codes, specs, sizes, images, featured flag) | `src/app/data/products.data.ts` |
 | Flanges (46 products, own file, appended to the catalogue) | `src/app/data/flanges.data.ts` |
 | Categories and their grouping | `src/app/data/categories.data.ts` |
+| Buying-guide text under each category page | `src/app/data/category-guides.data.ts` |
+| Plain-English explanations of EN 388 / EN 407 / EN ISO 20345 ratings | `src/app/core/utils/standards.ts` |
 | Page titles, descriptions, structured data | each page's `seo.set(...)` call; shared logic in `src/app/core/services/seo.service.ts` |
 | Colours, spacing, radius, shadows, type scale | CSS variables at the top of `src/styles.scss` |
 | Sitemap, robots.txt, share images, thumbnails (generated) | `scripts/generate-sitemap.mjs` |
@@ -47,14 +54,21 @@ WhatsApp/social preview image. Commit and push; Vercel does the rest.
   canonical link, social preview and structured data — search engines don't need to run
   JavaScript to read them.
 - **Category landing pages** at `/categories/<name>` (e.g. `/categories/cut-resistant-gloves`),
-  each titled "<Category> Supplier in Kolkata". Old `/products?category=…` links redirect to them.
+  each titled "<Category> Supplier in Kolkata", with a short buying guide under the products.
+  Old `/products?category=…` links permanently redirect (308) to them.
+- **Product pages explain their ratings.** A product quoting e.g. `EN 388:2016 (4544D)` or
+  `EN ISO 20345 S1 SRC` gets a "What the ratings mean" table decoding each figure, generated
+  from the standard already in the product data.
 - **Structured data (schema.org):** LocalBusiness with address, phone, email and opening hours
   (home, about, contact — generated from `company.config.ts`), WebSite (home), and
   BreadcrumbList on every page. No Product markup: Google requires a price, review or rating
   for that, and the site doesn't publish prices.
-- **One canonical address per page** (`https://www.bhrubberproducts.com/...`, no trailing slash).
+- **One canonical address per page** (`https://www.bhrubberproducts.com/...`, no trailing slash);
+  the bare domain redirects to www.
   Search-result pages (`?q=`) and "not found" pages are `noindex`.
-- **Sitemap** lists every page plus product photos for Google Images. Pagination uses real links
+- **Sitemap** lists every page plus product photos for Google Images, with a `<lastmod>` date
+  that only changes when that page's content changes (tracked in `scripts/sitemap-lastmod.json`
+  — commit it with your changes). Pagination uses real links
   so every product is reachable by crawling, not only via the sitemap.
 - **Speed:** thumbnails for cards, long caching, self-hosted font. Lighthouse (mobile, simulated
   slow 4G): SEO 100, Accessibility 100, Best Practices 100, Performance ~83–89.
@@ -65,6 +79,7 @@ WhatsApp/social preview image. Commit and push; Vercel does the rest.
    `bhrubberproducts.com`, verify with the DNS TXT record it gives you (add it where the domain's
    DNS is managed), then **Sitemaps → submit** `https://www.bhrubberproducts.com/sitemap.xml`.
    Use **URL Inspection → Request indexing** on the home page and a few category pages.
+   In **Pages → Crawled – currently not indexed**, click **Validate fix** after deploying.
 2. **Google Business Profile** (business.google.com): create/claim "B H Rubber Products" at
    6A, Clive Row, Kolkata 700001 with the same phone, hours and website. This is what puts the
    business on Google Maps and in "near me" / "in Kolkata" results. Add photos; ask happy
@@ -86,7 +101,8 @@ src/app/
   core/config      company.config.ts   ← single source for contact details and site URL
   core/models      product.model.ts
   core/services    catalog (search/filter/sort), enquiry (WhatsApp/mailto links), seo
-  data/            products.data.ts, flanges.data.ts, categories.data.ts
+  core/utils       standards.ts (decodes EN 388 / EN 407 / EN ISO 20345 ratings)
+  data/            products.data.ts, flanges.data.ts, categories.data.ts, category-guides.data.ts
   layout/          header (sticky, mobile menu), footer
   pages/           home (+hero), products (also serves /categories/:slug), product-detail,
                    categories, about, contact, not-found
@@ -102,6 +118,7 @@ public/
   share/, sitemap.xml, robots.txt   (generated by `npm run sitemap` — don't edit)
 scripts/
   generate-sitemap.mjs   sitemap, robots.txt, share images, thumbnails
+  sitemap-lastmod.json   per-page content fingerprint + last-changed date (generated; commit it)
   postbuild.mjs          writes 404.html (noindex) after the build
 ```
 

@@ -458,3 +458,24 @@
   gap: 10px;
   margin-top: 12px;
 }
+
+.guide {
+  max-width: 72ch;
+  margin-top: clamp(40px, 6vw, 64px);
+  padding-top: 28px;
+  border-top: 1px solid var(--c-line);
+
+  h2 {
+    margin-bottom: 12px;
+    font-size: var(--fs-lg);
+  }
+
+  p {
+    color: var(--c-ink-2);
+    line-height: 1.7;
+
+    & + p {
+      margin-top: 12px;
+    }
+  }
+}

@@ -14,6 +14,7 @@ import { takeUntilDestroyed, toObservable, toSignal } from '@angular/core/rxjs-i
 import { ActivatedRoute, Params, Router, RouterLink } from '@angular/router';
 import { debounceTime, distinctUntilChanged, map, skip } from 'rxjs';
 import { CategorySlug } from '../../core/models/product.model';
+import { CATEGORY_GUIDES } from '../../data/category-guides.data';
 import { CatalogService, SortOption } from '../../core/services/catalog.service';
 import { SeoService, breadcrumbLd } from '../../core/services/seo.service';
 import { Icon } from '../../shared/components/icon/icon';
@@ -61,6 +62,11 @@ export class Products {
     return this.catalog.isCategory(c) ? c : null;
   });
   readonly category = computed(() => this.catalog.getCategory(this.categorySlug()));
+  /** Buying guide under the grid: category pages only, first page, not while searching. */
+  readonly guide = computed(() => {
+    const c = this.category();
+    return c && this.page() === 1 && !this.query() ? CATEGORY_GUIDES[c.slug] : null;
+  });
 
   /** Page intro: category description plus where it's supplied from (useful to visitors and search engines). */
   readonly intro = computed(() => {

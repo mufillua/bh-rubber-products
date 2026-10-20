@@ -1,0 +1,710 @@
+{
+ "/": {
+  "hash": "8c0b0f97067e4529",
+  "lastmod": "2026-10-20"
+ },
+ "/products": {
+  "hash": "2618e8b3b8a64d84",
+  "lastmod": "2026-10-20"
+ },
+ "/categories": {
+  "hash": "960824c274ace6db",
+  "lastmod": "2026-10-20"
+ },
+ "/categories/knitted-gloves": {
+  "hash": "416cf284eae1018e",
+  "lastmod": "2026-10-20"
+ },
+ "/categories/cut-resistant-gloves": {
+  "hash": "4d9d4b59161e169b",
+  "lastmod": "2026-10-20"
+ },
+ "/categories/heat-resistant-gloves": {
+  "hash": "398b4b3d72bfb3bc",
+  "lastmod": "2026-10-20"
+ },
+ "/categories/protective-sleeves": {
+  "hash": "ff957758a6f32852",
+  "lastmod": "2026-10-20"
+ },
+ "/categories/lined-leather-gloves": {
+  "hash": "6450965b18c76f63",
+  "lastmod": "2026-10-20"
+ },
+ "/categories/drivers-gloves": {
+  "hash": "f1e20e9e9e6d0491",
+  "lastmod": "2026-10-20"
+ },
+ "/categories/canadian-gloves": {
+  "hash": "778c473c9f5f86b3",
+  "lastmod": "2026-10-20"
+ },
+ "/categories/welders-gloves": {
+  "hash": "56ec1a86fe5aee65",
+  "lastmod": "2026-10-20"
+ },
+ "/categories/welding-protection": {
+  "hash": "7b2f315388809bd4",
+  "lastmod": "2026-10-20"
+ },
+ "/categories/coveralls": {
+  "hash": "2e24e96af898ade7",
+  "lastmod": "2026-10-20"
+ },
+ "/categories/jackets-trousers": {
+  "hash": "0f73c2009de48e48",
+  "lastmod": "2026-10-20"
+ },
+ "/categories/shirts-tshirts-vests": {
+  "hash": "c20c2083dc354190",
+  "lastmod": "2026-10-20"
+ },
+ "/categories/uniforms-lab-coats": {
+  "hash": "302a634f9519a64d",
+  "lastmod": "2026-10-20"
+ },
+ "/categories/safety-shoes": {
+  "hash": "d3980a7d1e7daec9",
+  "lastmod": "2026-10-20"
+ },
+ "/categories/flanges": {
+  "hash": "be1e3ccb6c65422f",
+  "lastmod": "2026-10-20"
+ },
+ "/products/sa-24-100-cotton-seamless-knitted-gloves": {
+  "hash": "8f814ec92c09a7c5",
+  "lastmod": "2026-10-20"
+ },
+ "/products/sa-28-polyester-cotton-seamless-knitted-gloves": {
+  "hash": "25ad241b14bba434",
+  "lastmod": "2026-10-20"
+ },
+ "/products/sa-35-polyester-melange-seamless-knitted-gloves": {
+  "hash": "bef1fbdeb77a7d2b",
+  "lastmod": "2026-10-20"
+ },
+ "/products/sa-21-100-polyamide-nylon-seamless-knitted-gloves": {
+  "hash": "c1ff323024ea14aa",
+  "lastmod": "2026-10-20"
+ },
+ "/products/sa-34-100-cotton-pvc-dotted-gloves": {
+  "hash": "2ea19abae79d3566",
+  "lastmod": "2026-10-20"
+ },
+ "/products/sa-50-nylon-gloves-with-pu-coating": {
+  "hash": "f75d88fad6be82f0",
+  "lastmod": "2026-10-20"
+ },
+ "/products/sa-50-12-100-para-aramid-seamless-knitted-gloves-light-weight": {
+  "hash": "3fc9b56048377ab4",
+  "lastmod": "2026-10-20"
+ },
+ "/products/sa-48-grey-polyamide-knitted-gloves-with-para-aramid-plating": {
+  "hash": "389f529d39721033",
+  "lastmod": "2026-10-20"
+ },
+ "/products/sa-53-100-para-aramid-seamless-knitted-gloves": {
+  "hash": "d412c49e7203248b",
+  "lastmod": "2026-10-20"
+ },
+ "/products/power-aramid-polyamide-seamless-knitted-gloves": {
+  "hash": "0f88a271e33aa79b",
+  "lastmod": "2026-10-20"
+ },
+ "/products/aspf-10-100-para-aramid-seamless-knitted-gloves-with-cow-split-leather-reinforcement": {
+  "hash": "0d503d0040be3824",
+  "lastmod": "2026-10-20"
+ },
+ "/products/k-221-100-para-aramid-seamless-knitted-gloves-with-leather-on-palm-and-fourchettes": {
+  "hash": "7d0f345e744d90f8",
+  "lastmod": "2026-10-20"
+ },
+ "/products/a10-f-100-para-aramid-seamless-knitted-gloves-with-leather-palm-and-nail-guard": {
+  "hash": "b9767ecc430e7dc7",
+  "lastmod": "2026-10-20"
+ },
+ "/products/k300-para-aramid-mix-polyamide-gloves-with-cow-split-leather-reinforcement": {
+  "hash": "11de1178ffb54c23",
+  "lastmod": "2026-10-20"
+ },
+ "/products/power-tech-aramid-polyamide-seamless-gloves-with-cow-split-leather-reinforcement": {
+  "hash": "b2389f64ffcc0b45",
+  "lastmod": "2026-10-20"
+ },
+ "/products/sa-56-100-para-aramid-seamless-knitted-gloves-heavy-weight": {
+  "hash": "915b99e8f863021f",
+  "lastmod": "2026-10-20"
+ },
+ "/products/aspf-7-100-para-aramid-seamless-knitted-gloves-with-leather-reinforcement-heavy-weight": {
+  "hash": "a9a14d031d26c889",
+  "lastmod": "2026-10-20"
+ },
+ "/products/sa-45-high-tenacity-polyamide-mix-seamless-knitted-gloves": {
+  "hash": "2ecc9f078c9d6105",
+  "lastmod": "2026-10-20"
+ },
+ "/products/cmas-high-tenacity-fibre-seamless-knitted-gloves": {
+  "hash": "a01e505e146a1635",
+  "lastmod": "2026-10-20"
+ },
+ "/products/fpg-10-high-tenacity-fibre-knitted-gloves-with-cow-grain-leather-reinforcement": {
+  "hash": "4686bad161e849e5",
+  "lastmod": "2026-10-20"
+ },
+ "/products/dl-7-high-tenacity-fibre-seamless-knitted-gloves-with-leather-palm-and-nail-guard": {
+  "hash": "286eed1244141530",
+  "lastmod": "2026-10-20"
+ },
+ "/products/kk-cr-high-tenacity-fibre-seamless-knitted-gloves-with-leather-palm-and-canvas-cuff": {
+  "hash": "f2f94f94bc9d45a8",
+  "lastmod": "2026-10-20"
+ },
+ "/products/master-cut-aramid-with-stainless-steel-seamless-knitted-gloves-with-leather-palm": {
+  "hash": "8d17fb7eca9ea470",
+  "lastmod": "2026-10-20"
+ },
+ "/products/ld-5-split-welder-gloves-with-cut-resistant-liner": {
+  "hash": "7bc821d539c81190",
+  "lastmod": "2026-10-20"
+ },
+ "/products/kcdc-para-aramid-cotton-seamless-knitted-gloves-with-cotton-lining": {
+  "hash": "b4990b46e40588f8",
+  "lastmod": "2026-10-20"
+ },
+ "/products/kd-100-para-aramid-seamless-knitted-gloves-with-cotton-lining": {
+  "hash": "a57512c3be9e3b40",
+  "lastmod": "2026-10-20"
+ },
+ "/products/frk-blue-split-gloves-lined-with-para-aramid-knitted-gloves": {
+  "hash": "2fecd36ef8f6ec81",
+  "lastmod": "2026-10-20"
+ },
+ "/products/ss-45-100-para-aramid-knitted-sleeves": {
+  "hash": "6a0e49079a8f8727",
+  "lastmod": "2026-10-20"
+ },
+ "/products/cmslv-high-tenacity-knitted-sleeves": {
+  "hash": "a0e7e905db0dc766",
+  "lastmod": "2026-10-20"
+ },
+ "/products/power-sleeves-aramid-polyamide-knitted-sleeves": {
+  "hash": "1c520d10e2feb573",
+  "lastmod": "2026-10-20"
+ },
+ "/products/as-t-l-aramid-polyamide-knitted-sleeves-with-leather": {
+  "hash": "46316025ffdd7205",
+  "lastmod": "2026-10-20"
+ },
+ "/products/lkg-cow-split-5-finger-gloves-lined-with-para-aramid-knitted-gloves": {
+  "hash": "e6da1efbbc291936",
+  "lastmod": "2026-10-20"
+ },
+ "/products/lck-natural-grain-work-gloves-with-para-aramid-fabric-lining": {
+  "hash": "36690133b4b2c454",
+  "lastmod": "2026-10-20"
+ },
+ "/products/lk1-split-welder-gloves-with-knitted-para-aramid-lining": {
+  "hash": "983b73ae8523203a",
+  "lastmod": "2026-10-20"
+ },
+ "/products/lk2-para-aramid-knitted-gloves-with-split-leather-cuff": {
+  "hash": "6ec744fbdd686057",
+  "lastmod": "2026-10-20"
+ },
+ "/products/l227a-natural-cow-grain-drivers-gloves": {
+  "hash": "daf9bb4f5200a549",
+  "lastmod": "2026-10-20"
+ },
+ "/products/l127a-natural-buffalo-grain-drivers-gloves": {
+  "hash": "80d8913eef24a052",
+  "lastmod": "2026-10-20"
+ },
+ "/products/l127g-goat-grain-drivers-gloves": {
+  "hash": "34575e3815d12910",
+  "lastmod": "2026-10-20"
+ },
+ "/products/l227-b3-natural-cow-grain-drivers-gloves-with-split-back": {
+  "hash": "73a526fd1654cebd",
+  "lastmod": "2026-10-20"
+ },
+ "/products/l227-b4-natural-cow-grain-drivers-gloves-with-split-back": {
+  "hash": "72068c12990ebd60",
+  "lastmod": "2026-10-20"
+ },
+ "/products/l228-yellow-cow-grain-drivers-gloves": {
+  "hash": "3f1f04b7272ad2a1",
+  "lastmod": "2026-10-20"
+ },
+ "/products/l230-natural-cow-grain-drivers-gloves-fully-lined": {
+  "hash": "71199288acfe5b8c",
+  "lastmod": "2026-10-20"
+ },
+ "/products/l229-yellow-cow-grain-drivers-gloves-fully-lined": {
+  "hash": "debd86ff81169ca5",
+  "lastmod": "2026-10-20"
+ },
+ "/products/l232-natural-leather-gloves-with-grain-palm-and-cotton-fabric-back": {
+  "hash": "b8a4b29706ad894f",
+  "lastmod": "2026-10-20"
+ },
+ "/products/l236-goat-grain-gloves-with-knitted-back-and-hook-and-loop-cuff": {
+  "hash": "6e69885677269a37",
+  "lastmod": "2026-10-20"
+ },
+ "/products/l236r-goat-grain-gloves-with-knitted-back-and-knitted-cuff": {
+  "hash": "cd015894c00c594c",
+  "lastmod": "2026-10-20"
+ },
+ "/products/l237-natural-cow-grain-leather-gloves-with-vein-guard-and-wing-thumb": {
+  "hash": "d6ab4a16b46bd25b",
+  "lastmod": "2026-10-20"
+ },
+ "/products/l231-3-cow-split-drivers-gloves": {
+  "hash": "6aa54f9719c67e5c",
+  "lastmod": "2026-10-20"
+ },
+ "/products/l231-4-cow-split-drivers-gloves": {
+  "hash": "2502560c5d8dccbd",
+  "lastmod": "2026-10-20"
+ },
+ "/products/l238-cow-grain-gloves-with-ventilation-holes-and-round-thumb": {
+  "hash": "a804cca89d4c706c",
+  "lastmod": "2026-10-20"
+ },
+ "/products/l233-beige-cow-grain-drivers-gloves-straight-thumb": {
+  "hash": "6987c2e95d332a61",
+  "lastmod": "2026-10-20"
+ },
+ "/products/l234-water-repellent-cow-grain-leather-gloves": {
+  "hash": "04b019cd94a4e656",
+  "lastmod": "2026-10-20"
+ },
+ "/products/l235-water-repellent-beige-drivers-gloves-with-elastic-rib": {
+  "hash": "6ed03f4c38f2c69d",
+  "lastmod": "2026-10-20"
+ },
+ "/products/l241-cow-grain-drivers-gloves-with-keystone-thumb": {
+  "hash": "ba1e12f047fde499",
+  "lastmod": "2026-10-20"
+ },
+ "/products/l242-cow-grain-drivers-gloves-with-keystone-thumb-fleece-lined": {
+  "hash": "5b22c3ae44c1a357",
+  "lastmod": "2026-10-20"
+ },
+ "/products/l243-cow-grain-drivers-gloves-with-rust-split-back-and-keystone-thumb": {
+  "hash": "bb4e0795243c816e",
+  "lastmod": "2026-10-20"
+ },
+ "/products/l244-cow-grain-drivers-gloves-with-split-palm-reinforcement": {
+  "hash": "e303ea1e203f46fa",
+  "lastmod": "2026-10-20"
+ },
+ "/products/l245-cow-grain-drivers-gloves-with-reflective-fingertips": {
+  "hash": "685bff2e05c8aaa2",
+  "lastmod": "2026-10-20"
+ },
+ "/products/l246-cow-grain-drivers-gloves-with-tpr-protection": {
+  "hash": "f33ada282b41aae3",
+  "lastmod": "2026-10-20"
+ },
+ "/products/l224-natural-cow-grain-work-gloves-with-fabric-back-and-rubberised-cuff": {
+  "hash": "c31998e56115743d",
+  "lastmod": "2026-10-20"
+ },
+ "/products/l224-2-natural-cow-grain-work-gloves-with-drill-back-double-stitched": {
+  "hash": "713186de802665e9",
+  "lastmod": "2026-10-20"
+ },
+ "/products/l225-yellow-cow-grain-work-gloves-with-fabric-back-and-rubberised-cuff": {
+  "hash": "0f3ecc1ed84aa956",
+  "lastmod": "2026-10-20"
+ },
+ "/products/l224-b-beige-cow-grain-work-gloves-with-drill-back-and-canvas-cuff": {
+  "hash": "9dbe246031adbba1",
+  "lastmod": "2026-10-20"
+ },
+ "/products/l224-rp-natural-cow-grain-work-gloves-with-grain-reinforcement": {
+  "hash": "6aeb7d3d6de268d1",
+  "lastmod": "2026-10-20"
+ },
+ "/products/l252-beige-cow-grain-work-gloves-with-coloured-fabric-back": {
+  "hash": "53d449622a8cf22c",
+  "lastmod": "2026-10-20"
+ },
+ "/products/l253-natural-cow-grain-gloves-with-full-cotton-lining": {
+  "hash": "89ac9c4ff0aba6bc",
+  "lastmod": "2026-10-20"
+ },
+ "/products/l256-natural-cow-grain-canadian-gloves-with-high-visibility-back": {
+  "hash": "b5d5e445b58b113f",
+  "lastmod": "2026-10-20"
+ },
+ "/products/l226-natural-cow-split-work-gloves-with-coloured-drill-back": {
+  "hash": "387ecec554513054",
+  "lastmod": "2026-10-20"
+ },
+ "/products/l226g-natural-cow-split-work-gloves-with-green-split-reinforcement": {
+  "hash": "c5d8870ddd779abf",
+  "lastmod": "2026-10-20"
+ },
+ "/products/l254-natural-cow-split-work-gloves-with-striped-fabric-back": {
+  "hash": "34d4222631fe809d",
+  "lastmod": "2026-10-20"
+ },
+ "/products/l255-yellow-cow-split-work-gloves-with-coloured-drill-back": {
+  "hash": "1266f01ef23c9ccf",
+  "lastmod": "2026-10-20"
+ },
+ "/products/l250-natural-cow-grain-combi-work-gloves-with-knuckle-protection": {
+  "hash": "8bcc505f18494b75",
+  "lastmod": "2026-10-20"
+ },
+ "/products/l224-c-cow-split-canadian-gloves-with-grain-reinforcement": {
+  "hash": "941da920e5754181",
+  "lastmod": "2026-10-20"
+ },
+ "/products/l257-split-leather-canadian-gloves-with-denim-back": {
+  "hash": "9fb53939eb32f66a",
+  "lastmod": "2026-10-20"
+ },
+ "/products/l119-natural-cow-split-welder-gloves-with-8-cm-cuff": {
+  "hash": "326255003a82cc1d",
+  "lastmod": "2026-10-20"
+ },
+ "/products/l219r-natural-cow-split-welder-gloves-with-palm-reinforcement": {
+  "hash": "f2c2efe13ba631c3",
+  "lastmod": "2026-10-20"
+ },
+ "/products/l218-natural-cow-grain-welder-gloves-with-split-back-and-cuff": {
+  "hash": "8ce774bb4689e27c",
+  "lastmod": "2026-10-20"
+ },
+ "/products/l221-natural-cow-split-welder-gloves-with-15-cm-cuff": {
+  "hash": "b05984c4f7740412",
+  "lastmod": "2026-10-20"
+ },
+ "/products/l222-all-cow-grain-welder-gloves-with-15-cm-split-cuff": {
+  "hash": "339d8d4b4d5d494b",
+  "lastmod": "2026-10-20"
+ },
+ "/products/l223-natural-cow-grain-welder-gloves-with-split-back-and-cuff": {
+  "hash": "7291bd17b63df336",
+  "lastmod": "2026-10-20"
+ },
+ "/products/l220-goat-welder-tig-gloves-with-15-cm-split-cuff": {
+  "hash": "39505b3ebc332b30",
+  "lastmod": "2026-10-20"
+ },
+ "/products/lbw-r-blue-welder-gloves-with-lining-and-knuckle-protection": {
+  "hash": "1a04c10abeb33687",
+  "lastmod": "2026-10-20"
+ },
+ "/products/lgw-r-dyed-split-welder-gloves-with-thumb-reinforcement": {
+  "hash": "9e179710918dc77b",
+  "lastmod": "2026-10-20"
+ },
+ "/products/lrw-fully-lined-red-welted-cow-split-welder-gloves": {
+  "hash": "292ca6458c86bc2b",
+  "lastmod": "2026-10-20"
+ },
+ "/products/lyw-fully-lined-yellow-welder-gloves-with-cow-grain-palm": {
+  "hash": "59c6d71cb0a205f1",
+  "lastmod": "2026-10-20"
+ },
+ "/products/lk1h-heat-resistant-yellow-split-welder-gloves-with-para-aramid-palm-lining": {
+  "hash": "7d1d072132235852",
+  "lastmod": "2026-10-20"
+ },
+ "/products/leather-leg-guard-arm-guard": {
+  "hash": "7278b15bae22f130",
+  "lastmod": "2026-10-20"
+ },
+ "/products/leather-apron": {
+  "hash": "b27c3735f4f975df",
+  "lastmod": "2026-10-20"
+ },
+ "/products/split-grain-leather-jacket": {
+  "hash": "0be0a00563dc457d",
+  "lastmod": "2026-10-20"
+ },
+ "/products/split-leather-trousers": {
+  "hash": "65526f3594a3cf1a",
+  "lastmod": "2026-10-20"
+ },
+ "/products/sc-cvl-2-coverall-royal-blue": {
+  "hash": "9e040fccb7183db2",
+  "lastmod": "2026-10-20"
+ },
+ "/products/sc-cvl-1-coverall-orange-navy": {
+  "hash": "77703dfa5b865ab9",
+  "lastmod": "2026-10-20"
+ },
+ "/products/sc-cvl-3-coverall-grey-black": {
+  "hash": "ce69a7018fbe561e",
+  "lastmod": "2026-10-20"
+ },
+ "/products/sc-cvl-4-coverall-hi-vis-yellow-grey": {
+  "hash": "07b252fe510e2a90",
+  "lastmod": "2026-10-20"
+ },
+ "/products/sc-jk-tr-1-jacket-and-trousers-orange-navy": {
+  "hash": "160b50c344de2cd7",
+  "lastmod": "2026-10-20"
+ },
+ "/products/sc-jk-tr-2-jacket-and-trousers-grey-navy": {
+  "hash": "01396aea8f12649b",
+  "lastmod": "2026-10-20"
+ },
+ "/products/sc-jkt-1-jacket-navy-grey": {
+  "hash": "afe4925276556bd4",
+  "lastmod": "2026-10-20"
+ },
+ "/products/sc-pjkt-1-parka-jacket-orange": {
+  "hash": "7a3c79668988e0ef",
+  "lastmod": "2026-10-20"
+ },
+ "/products/sc-tr-1-pc-stretch-trousers": {
+  "hash": "bcd27d0179dfd935",
+  "lastmod": "2026-10-20"
+ },
+ "/products/sc-tr-2-carpenter-trousers": {
+  "hash": "b2fdb33f044872ad",
+  "lastmod": "2026-10-20"
+ },
+ "/products/sc-tr-3-cotton-stretch-trousers": {
+  "hash": "424d970299d0590d",
+  "lastmod": "2026-10-20"
+ },
+ "/products/sc-tr-4-camouflage-trousers": {
+  "hash": "69fcf0c45f12365b",
+  "lastmod": "2026-10-20"
+ },
+ "/products/sc-bib-1-bib-trousers-beige-black": {
+  "hash": "6d8053c269a9a968",
+  "lastmod": "2026-10-20"
+ },
+ "/products/sc-srt-1-shirt-yellow-navy": {
+  "hash": "ff8b91b6b6f34987",
+  "lastmod": "2026-10-20"
+ },
+ "/products/sc-polo-t-1-polo-t-shirt": {
+  "hash": "e4449491677cb14f",
+  "lastmod": "2026-10-20"
+ },
+ "/products/sc-v2-vest-yellow-navy": {
+  "hash": "9998e6f9e76d16d6",
+  "lastmod": "2026-10-20"
+ },
+ "/products/sc-v1-vest-quilted-black": {
+  "hash": "92a8121f43cf6182",
+  "lastmod": "2026-10-20"
+ },
+ "/products/sc-chef-pj-1-chef-coat-and-pajama": {
+  "hash": "10355554693e2900",
+  "lastmod": "2026-10-20"
+ },
+ "/products/sc-lbc-1-long-coat": {
+  "hash": "fdc9fa2289348739",
+  "lastmod": "2026-10-20"
+ },
+ "/products/sc-tunic-1-royal-blue-tunic": {
+  "hash": "2f42e180fd8b893d",
+  "lastmod": "2026-10-20"
+ },
+ "/products/storm-steel-toe-leather-safety-shoe": {
+  "hash": "09661aa5a3ba3d81",
+  "lastmod": "2026-10-20"
+ },
+ "/products/api-6a-flanges": {
+  "hash": "77e879c915eb8299",
+  "lastmod": "2026-10-20"
+ },
+ "/products/as-flange": {
+  "hash": "e237eaa1142a5b31",
+  "lastmod": "2026-10-20"
+ },
+ "/products/asme-b16-47-series-a-wnrf-flanges": {
+  "hash": "d03a031f7d93d000",
+  "lastmod": "2026-10-20"
+ },
+ "/products/asme-b16-47-series-b-wnrf-flanges": {
+  "hash": "200b5b2c7c7dc262",
+  "lastmod": "2026-10-20"
+ },
+ "/products/awwa-flanges": {
+  "hash": "101a70ee05c98bbd",
+  "lastmod": "2026-10-20"
+ },
+ "/products/blind-flange": {
+  "hash": "9363eafb683f7d4c",
+  "lastmod": "2026-10-20"
+ },
+ "/products/blind-plate-flange": {
+  "hash": "5daa62a5cd159715",
+  "lastmod": "2026-10-20"
+ },
+ "/products/bs10-plate-flanges": {
+  "hash": "77c1e6269d98cf41",
+  "lastmod": "2026-10-20"
+ },
+ "/products/cs-flange": {
+  "hash": "7732a6612b5ceca2",
+  "lastmod": "2026-10-20"
+ },
+ "/products/dairy-fittings-flange": {
+  "hash": "89c1d32912cee6a7",
+  "lastmod": "2026-10-20"
+ },
+ "/products/en-1092-plate-flanges": {
+  "hash": "b126891480fc3a23",
+  "lastmod": "2026-10-20"
+ },
+ "/products/en-1092-type-o5-a": {
+  "hash": "42cb71ccdd9eeefc",
+  "lastmod": "2026-10-20"
+ },
+ "/products/en-1092-type-11-b1": {
+  "hash": "390e02a6e9afd413",
+  "lastmod": "2026-10-20"
+ },
+ "/products/en-1092-type-13-a": {
+  "hash": "6c7fa685fa02fc50",
+  "lastmod": "2026-10-20"
+ },
+ "/products/en-1092-type-o2-a": {
+  "hash": "6d63442a66f4a523",
+  "lastmod": "2026-10-20"
+ },
+ "/products/expander-flange": {
+  "hash": "fd7ea2a1b85cdc34",
+  "lastmod": "2026-10-20"
+ },
+ "/products/fire-brigade-flange": {
+  "hash": "e772bf0020f8d9cf",
+  "lastmod": "2026-10-20"
+ },
+ "/products/flat-flange": {
+  "hash": "d0afe5c54b48cb38",
+  "lastmod": "2026-10-20"
+ },
+ "/products/forged-flanges": {
+  "hash": "8d34919f80d84f18",
+  "lastmod": "2026-10-20"
+ },
+ "/products/gi-flange": {
+  "hash": "16e1da40b7f5ba33",
+  "lastmod": "2026-10-20"
+ },
+ "/products/gm-flange": {
+  "hash": "b3e894a498c4304b",
+  "lastmod": "2026-10-20"
+ },
+ "/products/heavy-flange": {
+  "hash": "49819f0ff12c7997",
+  "lastmod": "2026-10-20"
+ },
+ "/products/high-hub-blind-flanges": {
+  "hash": "1a2b563b51e8d704",
+  "lastmod": "2026-10-20"
+ },
+ "/products/hose-box-flange": {
+  "hash": "5d1225842f889c5f",
+  "lastmod": "2026-10-20"
+ },
+ "/products/hydrant-coupling-flange": {
+  "hash": "b04e92c5d74db312",
+  "lastmod": "2026-10-20"
+ },
+ "/products/is-6392-type-flanges": {
+  "hash": "e1b67de800fc1a70",
+  "lastmod": "2026-10-20"
+ },
+ "/products/jis-standard-flanges": {
+  "hash": "fb1d8c3a7cc5208a",
+  "lastmod": "2026-10-20"
+ },
+ "/products/lap-joint-flanges": {
+  "hash": "86c9060c688c113c",
+  "lastmod": "2026-10-20"
+ },
+ "/products/long-neck-weld-flanges": {
+  "hash": "fd0d5d866b87a938",
+  "lastmod": "2026-10-20"
+ },
+ "/products/ms-flange": {
+  "hash": "785d207025dd604f",
+  "lastmod": "2026-10-20"
+ },
+ "/products/nut-bolt-flange": {
+  "hash": "28b09163ebf49f8b",
+  "lastmod": "2026-10-20"
+ },
+ "/products/orifice-flanges": {
+  "hash": "5891a94b0d3ea6bc",
+  "lastmod": "2026-10-20"
+ },
+ "/products/orifice-welding-neck-flanges": {
+  "hash": "d62bc729e7749d1e",
+  "lastmod": "2026-10-20"
+ },
+ "/products/plate-flanges": {
+  "hash": "96311577d36971e9",
+  "lastmod": "2026-10-20"
+ },
+ "/products/pressure-flange": {
+  "hash": "6e7a0f12488c480c",
+  "lastmod": "2026-10-20"
+ },
+ "/products/reducing-flanges": {
+  "hash": "90fa91944a7310b6",
+  "lastmod": "2026-10-20"
+ },
+ "/products/ring-type-joint-flanges": {
+  "hash": "83ec40a0c1a540df",
+  "lastmod": "2026-10-20"
+ },
+ "/products/screwed-flanges": {
+  "hash": "00342bcab4769388",
+  "lastmod": "2026-10-20"
+ },
+ "/products/spades-ring-flanges": {
+  "hash": "4bd29e76bdc3c4f0",
+  "lastmod": "2026-10-20"
+ },
+ "/products/socket-weld-flanges": {
+  "hash": "bc808f9dc3ac627e",
+  "lastmod": "2026-10-20"
+ },
+ "/products/slip-on-flanges": {
+  "hash": "e7bc1bedb90c2e03",
+  "lastmod": "2026-10-20"
+ },
+ "/products/sprinkler-flange": {
+  "hash": "4009b9d925072403",
+  "lastmod": "2026-10-20"
+ },
+ "/products/stainless-steel-flange": {
+  "hash": "488eb01c9dbca4b6",
+  "lastmod": "2026-10-20"
+ },
+ "/products/threaded-flanges": {
+  "hash": "6793124d6f26082f",
+  "lastmod": "2026-10-20"
+ },
+ "/products/weld-neck-flanges": {
+  "hash": "5626a2a294fa973c",
+  "lastmod": "2026-10-20"
+ },
+ "/products/weld-neck-flanges-series-a-b": {
+  "hash": "87ef12fbc2d08c4a",
+  "lastmod": "2026-10-20"
+ },
+ "/about": {
+  "hash": "629c380a5e7d4fac",
+  "lastmod": "2026-10-20"
+ },
+ "/contact": {
+  "hash": "fe6ac045106de118",
+  "lastmod": "2026-10-20"
+ }
+}

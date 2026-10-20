@@ -160,6 +160,15 @@
           </div>
         </div>
       }
+
+      @if (guide(); as g) {
+        <section class="guide" aria-labelledby="guide-title">
+          <h2 id="guide-title">Choosing {{ category()!.name }}</h2>
+          @for (para of g; track $index) {
+            <p>{{ para }}</p>
+          }
+        </section>
+      }
     </div>
   </div>
 </section>

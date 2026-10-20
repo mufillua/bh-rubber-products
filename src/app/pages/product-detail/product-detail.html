@@ -112,6 +112,27 @@
                   <li><bh-icon name="shield" />{{ s }}</li>
                 }
               </ul>
+              @if (standardsExplained().length) {
+                <div class="std-explain">
+                  <h3>What the ratings mean</h3>
+                  @for (e of standardsExplained(); track e.standard) {
+                    <div class="std-item">
+                      <h4>{{ e.title }}</h4>
+                      <p>{{ e.summary }}</p>
+                      @if (e.rows.length) {
+                        <dl class="spec-table">
+                          @for (r of e.rows; track r.label) {
+                            <div class="spec-row">
+                              <dt>{{ r.label }}</dt>
+                              <dd>{{ r.value }}</dd>
+                            </div>
+                          }
+                        </dl>
+                      }
+                    </div>
+                  }
+                </div>
+              }
             </section>
           }
 
