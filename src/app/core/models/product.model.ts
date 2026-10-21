@@ -63,6 +63,12 @@ export interface Category {
   name: string;
   division: DivisionSlug;
   description: string;
+  /** Search-optimised <title> for the category page (site name is appended). */
+  seoTitle: string;
+  /** H1 on the category page — the category name plus the terms buyers search for. */
+  heading: string;
+  /** Meta description for the category page (~150 characters; shown under the title in Google). `{phone}` is replaced with the phone number from company.config. */
+  seoDescription: string;
   /** Representative image, path relative to /public */
   image: string;
 }

@@ -52,7 +52,7 @@ export class About {
 
   constructor() {
     inject(SeoService).set({
-      title: 'About Us',
+      title: 'About Us — Safety Gloves, Workwear & Flanges Supplier, Clive Row, Kolkata',
       description:
         'B H Rubber Products, 6A Clive Row, Kolkata, supplies industrial gloves, welding protection, workwear, safety shoes and flanges with a focus on quality, reliability and dependable service.',
       path: '/about',

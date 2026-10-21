@@ -49,9 +49,9 @@ export const COMPANY = {
 
   seo: {
     /** Home page title — business name first, then what people search for, then the city. */
-    defaultTitle: 'B H Rubber Products, Kolkata | Industrial Gloves, Safety Shoes & Flanges',
+    defaultTitle: 'B H Rubber Products, Kolkata | Safety Gloves, Safety Shoes, Workwear & Flanges',
     defaultDescription:
-      'B H Rubber Products, Clive Row, Kolkata: cut resistant, heat resistant, leather and welding gloves, safety shoes, coveralls, workwear and industrial flanges. Enquire on WhatsApp.',
+      'B H Rubber Products, Clive Row, Kolkata: safety gloves, leather & welding gloves, safety shoes, coveralls, workwear and MS/SS flanges. Call/WhatsApp +91 98301 64487.',
     ogImage: 'brand/og-image.jpg',
   },
 } as const;

@@ -33,6 +33,7 @@ www to redirect to the bare domain: that would loop with the rule above.
 | Products (names, codes, specs, sizes, images, featured flag) | `src/app/data/products.data.ts` |
 | Flanges (46 products, own file, appended to the catalogue) | `src/app/data/flanges.data.ts` |
 | Categories and their grouping | `src/app/data/categories.data.ts` |
+| Category page Google title, heading (H1) and description (`seoTitle`, `heading`, `seoDescription`) | `src/app/data/categories.data.ts` |
 | Buying-guide text under each category page | `src/app/data/category-guides.data.ts` |
 | Plain-English explanations of EN 388 / EN 407 / EN ISO 20345 ratings | `src/app/core/utils/standards.ts` |
 | Page titles, descriptions, structured data | each page's `seo.set(...)` call; shared logic in `src/app/core/services/seo.service.ts` |

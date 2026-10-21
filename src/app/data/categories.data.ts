@@ -31,6 +31,9 @@ export const CATEGORIES: Category[] = [
     name: 'Knitted Gloves',
     division: 'knitted',
     description: 'Seamless knitted gloves in cotton, polyester and nylon, including PVC dotted and PU coated options.',
+    seoTitle: 'Cotton Knitted, PU Coated & Dotted Gloves Supplier in Kolkata',
+    heading: 'Knitted Hand Gloves — Cotton, PU Coated & Dotted',
+    seoDescription: 'Seamless cotton, polyester and nylon knitted hand gloves, PVC dotted and PU coated gloves for industry. Kolkata supplier — WhatsApp for a quote.',
     image: 'products/sa-35.webp',
   },
   {
@@ -38,6 +41,9 @@ export const CATEGORIES: Category[] = [
     name: 'Cut Resistant Gloves',
     division: 'knitted',
     description: 'Para-aramid, aramid-polyamide and high-tenacity fibre gloves rated from cut level 2 to cut level 5.',
+    seoTitle: 'Cut Resistant Gloves (Anti-Cut, Level 2–5) Supplier in Kolkata',
+    heading: 'Cut Resistant Gloves — Anti-Cut Level 2 to 5',
+    seoDescription: 'Anti-cut safety gloves in para-aramid and high-tenacity yarn, cut level 2 to 5 (EN 388). Kolkata supplier — WhatsApp {phone} for a quote.',
     image: 'products/k300.webp',
   },
   {
@@ -45,6 +51,9 @@ export const CATEGORIES: Category[] = [
     name: 'Heat Resistant Gloves',
     division: 'knitted',
     description: 'Para-aramid knitted gloves with cotton lining, and split leather gloves with a para-aramid knitted lining.',
+    seoTitle: 'Heat Resistant Gloves (EN 407) Supplier in Kolkata',
+    heading: 'Heat Resistant Gloves',
+    seoDescription: 'Heat resistant gloves for handling hot parts: para-aramid knitted and aramid-lined split leather, with EN 407 ratings. Kolkata supplier — WhatsApp for a quote.',
     image: 'products/kd.webp',
   },
   {
@@ -52,6 +61,9 @@ export const CATEGORIES: Category[] = [
     name: 'Protective Sleeves',
     division: 'knitted',
     description: 'Knitted arm sleeves in para-aramid, aramid-polyamide and high-tenacity yarns.',
+    seoTitle: 'Cut Resistant Arm Sleeves Supplier in Kolkata',
+    heading: 'Cut Resistant Arm Sleeves',
+    seoDescription: 'Knitted cut resistant arm sleeves in para-aramid, aramid-polyamide and high-tenacity yarn to protect forearms. Kolkata supplier — WhatsApp for a quote.',
     image: 'products/as-t-l.webp',
   },
   {
@@ -59,6 +71,9 @@ export const CATEGORIES: Category[] = [
     name: 'Aramid-Lined Leather Gloves',
     division: 'leather',
     description: 'Leather work and welder gloves with a para-aramid knitted or fabric lining.',
+    seoTitle: 'Aramid-Lined Leather Safety Gloves Supplier in Kolkata',
+    heading: 'Aramid-Lined Leather Safety Gloves',
+    seoDescription: 'Leather safety gloves with a para-aramid lining for cut and heat resistance — for welding, fabrication and foundry work. Kolkata supplier — WhatsApp for a quote.',
     image: 'products/lk2.webp',
   },
   {
@@ -66,6 +81,9 @@ export const CATEGORIES: Category[] = [
     name: 'Drivers Gloves',
     division: 'leather',
     description: 'Cow grain, buffalo grain, goat grain and cow split drivers gloves in sizes 7–11 and XS–2XL.',
+    seoTitle: 'Leather Drivers Gloves & Hand Gloves Supplier in Kolkata',
+    heading: 'Leather Drivers Gloves',
+    seoDescription: 'Leather hand gloves in cow grain, buffalo grain, goat grain and split leather, sizes 7–11 and XS–2XL. Kolkata supplier — WhatsApp {phone} for a quote.',
     image: 'products/l228.webp',
   },
   {
@@ -73,6 +91,9 @@ export const CATEGORIES: Category[] = [
     name: 'Canadian Gloves',
     division: 'leather',
     description: 'Leather palm work gloves with drill or fabric backs and rubberised or canvas cuffs.',
+    seoTitle: 'Canadian Hand Gloves (Leather Palm) Supplier in Kolkata',
+    heading: 'Canadian Hand Gloves — Leather Palm',
+    seoDescription: 'Canadian hand gloves with leather palm, drill cotton back and canvas or rubberised cuff for industrial work. Kolkata supplier — get a quote on WhatsApp.',
     image: 'products/l225.webp',
   },
   {
@@ -80,6 +101,9 @@ export const CATEGORIES: Category[] = [
     name: 'Welders Gloves',
     division: 'leather',
     description: 'Split and grain leather welding gloves with 8 cm and 15 cm cuffs, lined and unlined.',
+    seoTitle: 'Leather Welding Gloves Supplier in Kolkata',
+    heading: 'Leather Welding Gloves',
+    seoDescription: 'Leather welding gloves in split and grain leather, 8 cm and 15 cm cuffs, lined and unlined, for MIG, TIG and arc welding. Kolkata supplier — WhatsApp for a quote.',
     image: 'products/lbw-r.webp',
   },
   {
@@ -87,6 +111,9 @@ export const CATEGORIES: Category[] = [
     name: 'Welding Protection',
     division: 'leather',
     description: 'Leather aprons, leg and arm guards, jackets and trousers in grain or split leather.',
+    seoTitle: 'Welding Apron, Leather Jacket & Leg Guards Supplier in Kolkata',
+    heading: 'Welding Aprons, Jackets & Leg Guards',
+    seoDescription: 'Leather welding aprons, welding jackets, trousers, leg guards and arm guards in grain or split leather. Kolkata supplier — WhatsApp {phone} for a quote.',
     image: 'products/split-grain-jacket.webp',
   },
   {
@@ -94,6 +121,9 @@ export const CATEGORIES: Category[] = [
     name: 'Coveralls',
     division: 'workwear',
     description: 'Cotton and poly-cotton coveralls, including hi-vis styles with reflective tape.',
+    seoTitle: 'Coveralls & Boiler Suits Supplier in Kolkata',
+    heading: 'Coveralls & Boiler Suits',
+    seoDescription: 'Cotton and poly-cotton coveralls and boiler suits, including hi-vis coveralls with reflective tape. Kolkata workwear supplier — get a quote on WhatsApp.',
     image: 'products/coverall-orange-navy.webp',
   },
   {
@@ -101,6 +131,9 @@ export const CATEGORIES: Category[] = [
     name: 'Jackets & Trousers',
     division: 'workwear',
     description: 'Work jackets, a parka, jacket-and-trouser sets, and stretch, cargo, carpenter and bib trousers.',
+    seoTitle: 'Reflective Safety Jackets & Work Trousers Supplier in Kolkata',
+    heading: 'Safety Jackets & Work Trousers',
+    seoDescription: 'Safety jackets with reflective tape, a hi-vis parka, jacket-and-trouser sets, stretch, carpenter and bib trousers. Kolkata supplier — WhatsApp for a quote.',
     image: 'products/jacket-trousers-orange-navy.webp',
   },
   {
@@ -108,6 +141,9 @@ export const CATEGORIES: Category[] = [
     name: 'Shirts, T-Shirts & Vests',
     division: 'workwear',
     description: 'Hi-vis work shirts, cotton polo T-shirts and work vests.',
+    seoTitle: 'Hi-Vis Work Shirts, Polo T-Shirts & Vests Supplier in Kolkata',
+    heading: 'Hi-Vis Work Shirts, T-Shirts & Vests',
+    seoDescription: 'Hi-vis work shirts and vests, and cotton polo T-shirts for staff uniforms. Kolkata workwear supplier — WhatsApp {phone} for a quote.',
     image: 'products/shirt-yellow-navy.webp',
   },
   {
@@ -115,6 +151,9 @@ export const CATEGORIES: Category[] = [
     name: 'Uniforms & Lab Coats',
     division: 'workwear',
     description: 'Chef coat and pajama set, cotton lab coat and cotton tunic.',
+    seoTitle: 'Lab Coats, Chef Coats & Uniforms Supplier in Kolkata',
+    heading: 'Lab Coats, Chef Coats & Uniforms',
+    seoDescription: 'Cotton lab coats, chef coat and pajama sets, and tunics for kitchens, labs and service staff. Kolkata supplier — get a quote on WhatsApp.',
     image: 'products/royal-blue-tunic.webp',
   },
   {
@@ -122,6 +161,9 @@ export const CATEGORIES: Category[] = [
     name: 'Safety Shoes',
     division: 'workwear',
     description: 'Steel toe leather safety shoes to EN ISO 20345, with antistatic, oil and heat resistant PU soles.',
+    seoTitle: 'Steel Toe Leather Safety Shoes Supplier in Kolkata',
+    heading: 'Steel Toe Safety Shoes',
+    seoDescription: 'Industrial safety shoes with 200 J steel toe cap, leather upper and PU sole, to EN ISO 20345. Kolkata supplier — WhatsApp {phone} for a quote.',
     image: 'products/storm-safety-shoe.webp',
   },
   {
@@ -129,6 +171,9 @@ export const CATEGORIES: Category[] = [
     name: 'Flanges',
     division: 'piping',
     description: 'Weld neck, slip-on, blind, threaded, orifice and plate flanges, plus fire fighting and dairy flanges.',
+    seoTitle: 'MS & SS Flanges Supplier in Kolkata — Weld Neck, Slip-On, Blind',
+    heading: 'Flanges — MS, SS, Weld Neck, Slip-On & Blind',
+    seoDescription: 'MS, SS and GI flanges: weld neck, slip-on, blind, socket weld, threaded, orifice and plate flanges to ASME, EN 1092, BS 10 Table D/E and IS 6392. Kolkata supplier.',
     image: 'products/flanges/weld-neck-flanges.webp',
   },
 ];

@@ -1,5 +1,5 @@
 <bh-page-header
-  [title]="unknownCategory() ? 'Category not found' : (category()?.name ?? 'Products')"
+  [title]="unknownCategory() ? 'Category not found' : (category()?.heading ?? 'Safety Gloves, Safety Shoes, Workwear & Flanges')"
   [intro]="intro()"
   [crumbs]="category() ? [{ label: 'Products', link: '/products' }, { label: category()!.name }] : [{ label: 'Products' }]"
 />

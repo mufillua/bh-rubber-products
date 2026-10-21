@@ -14,6 +14,7 @@ import { takeUntilDestroyed, toObservable, toSignal } from '@angular/core/rxjs-i
 import { ActivatedRoute, Params, Router, RouterLink } from '@angular/router';
 import { debounceTime, distinctUntilChanged, map, skip } from 'rxjs';
 import { CategorySlug } from '../../core/models/product.model';
+import { COMPANY } from '../../core/config/company.config';
 import { CATEGORY_GUIDES } from '../../data/category-guides.data';
 import { CatalogService, SortOption } from '../../core/services/catalog.service';
 import { SeoService, breadcrumbLd } from '../../core/services/seo.service';
@@ -161,10 +162,12 @@ export class Products {
           ...(cat ? [{ name: cat.name, path: base }] : []),
         ];
         this.seo.set({
-          title: cat ? `${cat.name} Supplier in Kolkata` : 'Industrial Gloves, Safety Shoes, Workwear & Flanges',
+          title: cat
+            ? cat.seoTitle + (page > 1 ? ` — Page ${page}` : '')
+            : 'Safety Gloves, Safety Shoes, Workwear & Flanges — All Products' + (page > 1 ? ` — Page ${page}` : ''),
           description: cat
-            ? `${cat.description} ${this.catalog.countFor(cat.slug)} products from B H Rubber Products, Clive Row, Kolkata — enquire on WhatsApp or email for price and availability.`
-            : `Browse ${this.totalCount} industrial products from B H Rubber Products, Kolkata: cut resistant, heat resistant, leather and welding gloves, safety shoes, coveralls, workwear and flanges.`,
+            ? cat.seoDescription.replace('{phone}', COMPANY.phoneDisplay)
+            : `${this.totalCount} products: safety gloves (cut resistant, leather, welding), safety shoes, coveralls, workwear and MS/SS flanges. Kolkata supplier — WhatsApp for a quote.`,
           path: base + (page > 1 ? `?page=${page}` : ''),
           image: cat?.image,
           // Internal search results shouldn't be indexed; the products themselves are.

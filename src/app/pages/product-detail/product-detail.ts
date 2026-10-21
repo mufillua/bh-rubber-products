@@ -1,6 +1,8 @@
 import { Location } from '@angular/common';
 import { ChangeDetectionStrategy, Component, computed, effect, inject, input, untracked } from '@angular/core';
 import { Router, RouterLink } from '@angular/router';
+import { COMPANY } from '../../core/config/company.config';
+import { Product } from '../../core/models/product.model';
 import { CatalogService } from '../../core/services/catalog.service';
 import { explainStandards } from '../../core/utils/standards';
 import { SeoService, breadcrumbLd } from '../../core/services/seo.service';
@@ -55,8 +57,9 @@ export class ProductDetail {
         }
         const name = p.code ? `${p.name} (${p.code})` : p.name;
         this.seo.set({
-          title: name,
-          description: `${p.code ? p.code + ': ' : ''}${p.description} Supplied by B H Rubber Products, Kolkata — enquire on WhatsApp or email for price and availability.`,
+          // "Supplier in Kolkata" matches how buyers search; skipped when the name is already long.
+          title: name.length <= 42 ? `${name} Supplier in Kolkata` : name,
+          description: productMetaDescription(p),
           path: `/products/${p.slug}`,
           image: p.image,
           jsonLd: [
@@ -84,3 +87,20 @@ export class ProductDetail {
     }
   }
 }
+
+/**
+ * Meta description (the text under the title in Google): what the product is, then where to buy it.
+ * Kept to ~160 characters so the call to action isn't cut off.
+ */
+function productMetaDescription(p: Product): string {
+  const cta = ` Kolkata supplier — WhatsApp ${COMPANY.phoneDisplay} for a quote.`;
+  const lead = p.code ? `${p.code}: ` : '';
+  const room = 160 - cta.length - lead.length;
+  let text = p.description.trim();
+  if (text.length > room) {
+    const firstSentence = text.match(/^.*?[.!?](\s|$)/)?.[0].trim() ?? text;
+    text = firstSentence.length <= room ? firstSentence : firstSentence.slice(0, room - 1).replace(/[\s,;:–—-]+\S*$/, '') + '…';
+  }
+  return lead + text + cta;
+}
+

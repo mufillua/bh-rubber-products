@@ -58,9 +58,9 @@ export class Categories {
 
   constructor() {
     inject(SeoService).set({
-      title: 'Product Categories — Gloves, Safety Shoes, Workwear & Flanges',
+      title: 'Product Categories — Safety Gloves, Safety Shoes, Workwear & Flanges',
       description:
-        'Browse B H Rubber Products by category: knitted, cut resistant and heat resistant gloves, leather drivers, Canadian and welders gloves, welding protection, workwear, safety shoes and flanges.',
+        `${this.catalog.categories.length} categories: knitted, cut resistant, heat resistant, leather and welding gloves, welding protection, coveralls, workwear, safety shoes and flanges. Kolkata supplier.`,
       path: '/categories',
       jsonLd: [breadcrumbLd([{ name: 'Home', path: '/' }, { name: 'Categories', path: '/categories' }])],
     });
