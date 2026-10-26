@@ -161,6 +161,22 @@
         </div>
       }
 
+      @if (categoryIndex(); as list) {
+        <nav class="cat-index" aria-labelledby="index-title">
+          <h2 id="index-title">All {{ list.length }} products in {{ category()!.name }}</h2>
+          <ul role="list">
+            @for (p of list; track p.slug) {
+              <li>
+                <a [routerLink]="['/products', p.slug]">{{ p.name }}</a>
+                @if (p.code) {
+                  <span class="code">{{ p.code }}</span>
+                }
+              </li>
+            }
+          </ul>
+        </nav>
+      }
+
       @if (guide(); as g) {
         <section class="guide" aria-labelledby="guide-title">
           <h2 id="guide-title">Choosing {{ category()!.name }}</h2>

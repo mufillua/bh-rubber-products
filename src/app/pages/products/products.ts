@@ -63,6 +63,18 @@ export class Products {
     return this.catalog.isCategory(c) ? c : null;
   });
   readonly category = computed(() => this.catalog.getCategory(this.categorySlug()));
+  /**
+   * Every product in the category as plain links, shown when the category runs to more than one
+   * page. Pages 2+ of the grid only exist once JavaScript runs, so without this list those
+   * products would have no link in the prerendered HTML that search engines read first.
+   */
+  readonly categoryIndex = computed(() => {
+    const c = this.category();
+    if (!c || this.query()) return null;
+    const items = this.catalog.products.filter((p) => p.category === c.slug);
+    return items.length > PAGE_SIZE ? items : null;
+  });
+
   /** Buying guide under the grid: category pages only, first page, not while searching. */
   readonly guide = computed(() => {
     const c = this.category();

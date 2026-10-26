@@ -71,8 +71,17 @@ export class CatalogService {
     return this.products.filter((p) => p.featured).slice(0, limit);
   }
 
+  /**
+   * The products that follow this one in its category (wrapping round to the start). Neighbours in
+   * catalogue order are the closest variants, and every product gets linked from a few siblings —
+   * rather than every page linking the same first four.
+   */
   related(product: Product, limit = 4): Product[] {
-    return this.products.filter((p) => p.category === product.category && p.id !== product.id).slice(0, limit);
+    const inCat = this.products.filter((p) => p.category === product.category);
+    const i = inCat.findIndex((p) => p.id === product.id);
+    const out: Product[] = [];
+    for (let k = 1; k < inCat.length && out.length < limit; k++) out.push(inCat[(i + k) % inCat.length]);
+    return out;
   }
 
   query({ search = '', category = null, sort = 'catalogue' }: ProductQuery): Product[] {

@@ -8,6 +8,7 @@ npm install
 npm start          # regenerates thumbnails/sitemap, then dev server at http://localhost:4200
 npm run build      # sitemap + images → prerendered site → 404 page, in dist/bh-rubber-products/browser
 npm run sitemap    # only regenerate sitemap.xml, robots.txt, share images and thumbnails
+npm run indexnow   # after a deploy: tell Bing & co. which pages changed (see below)
 ```
 
 ## Deploying (Vercel)
@@ -67,6 +68,10 @@ WhatsApp/social preview image. Commit and push; Vercel does the rest.
 - **One canonical address per page** (`https://www.bhrubberproducts.com/...`, no trailing slash);
   the bare domain redirects to www.
   Search-result pages (`?q=`) and "not found" pages are `noindex`.
+- **Every product is linked in the HTML.** Category pages with more than 12 products also list all
+  of them as plain links ("All 46 products in Flanges"), because pages 2+ of the grid only exist
+  once JavaScript runs. "More products" on each product page shows the next items in the same
+  category, so every product is linked from several pages.
 - **Sitemap** lists every page plus product photos for Google Images, with a `<lastmod>` date
   that only changes when that page's content changes (tracked in `scripts/sitemap-lastmod.json`
   — commit it with your changes). Pagination uses real links
@@ -86,7 +91,10 @@ WhatsApp/social preview image. Commit and push; Vercel does the rest.
    business on Google Maps and in "near me" / "in Kolkata" results. Add photos; ask happy
    customers for reviews.
 3. **Bing Webmaster Tools** (bing.com/webmasters): import from Search Console in one click.
-   Bing also powers results in ChatGPT search, Copilot and DuckDuckGo.
+   Bing also powers results in ChatGPT search, Copilot and DuckDuckGo. The site supports
+   **IndexNow** (key file `public/7732b7af0f7c404ea1fdef7eb0b817ac.txt`): after deploying changes,
+   run `npm run indexnow` to submit every sitemap URL, or `npm run indexnow -- /products/ms-flange`
+   to submit only the pages you changed. Google doesn't use IndexNow.
 4. **B2B listings** with a link back to the website, using exactly the same name, address and
    phone: IndiaMART, TradeIndia, Justdial, and any trade associations. These links are among
    the strongest signals for a new site.
