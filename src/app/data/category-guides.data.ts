@@ -45,7 +45,7 @@ export const CATEGORY_GUIDES: Record<CategorySlug, string[]> = {
   ],
   'welding-protection': [
     'Beyond gloves, welders need cover for the parts of the body that face the arc and spatter: an apron for the chest and lap, leg guards over the shin and boot, arm guards for the forearms and, for heavy or overhead welding, a full leather jacket and trousers.',
-    'Leather does not melt or drip the way synthetic fabrics can. Split leather is the usual choice because it is thick and tolerant of spatter; grain leather is smoother and lighter. Make sure items overlap — sleeve over glove cuff, apron over trousers — so sparks cannot get in at the joins.',
+    'Leather does not melt or drip the way synthetic fabrics can. Split leather is the usual choice because it is thick and tolerant of spatter; grain leather is smoother and lighter. Make sure items overlap — sleeves and glove cuffs, apron and trousers — so sparks cannot get in at the joins.',
   ],
   coveralls: [
     'A coverall (boiler suit) covers the body in one piece, so there is no gap at the waist to catch on machinery or let dust in. 100% cotton is breathable and comfortable in heat; poly-cotton blends are harder wearing, shrink less and hold their colour through industrial washing.',

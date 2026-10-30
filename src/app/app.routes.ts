@@ -13,5 +13,10 @@ export const routes: Routes = [
   { path: 'categories/:slug', loadComponent: () => import('./pages/products/products').then((m) => m.Products) },
   { path: 'about', loadComponent: () => import('./pages/about/about').then((m) => m.About) },
   { path: 'contact', loadComponent: () => import('./pages/contact/contact').then((m) => m.Contact) },
+  /** Guide: industrial safety products and the types of PPE, linking into the catalogue. */
+  {
+    path: 'industrial-safety-products',
+    loadComponent: () => import('./pages/safety-guide/safety-guide').then((m) => m.SafetyGuide),
+  },
   { path: '**', loadComponent: () => import('./pages/not-found/not-found').then((m) => m.NotFound) },
 ];

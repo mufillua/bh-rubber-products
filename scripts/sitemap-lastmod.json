@@ -1,75 +1,75 @@
 {
  "/": {
-  "hash": "4563c620f0dc7146",
-  "lastmod": "2026-10-21"
+  "hash": "46e40627806068c3",
+  "lastmod": "2026-10-30"
  },
  "/products": {
-  "hash": "8c69cf67b6b0ef06",
-  "lastmod": "2026-10-26"
+  "hash": "1b409daf0412809e",
+  "lastmod": "2026-10-30"
  },
  "/categories": {
   "hash": "b0b5b3b3bc839895",
   "lastmod": "2026-10-21"
  },
  "/categories/knitted-gloves": {
-  "hash": "e71306fe0e8e31a8",
-  "lastmod": "2026-10-26"
+  "hash": "d415cc8ccc984a5b",
+  "lastmod": "2026-10-30"
  },
  "/categories/cut-resistant-gloves": {
-  "hash": "9db79025b09ec677",
-  "lastmod": "2026-10-26"
+  "hash": "3111bec7790ea721",
+  "lastmod": "2026-10-30"
  },
  "/categories/heat-resistant-gloves": {
-  "hash": "c9c42ac045979774",
-  "lastmod": "2026-10-26"
+  "hash": "d53218b0569cc80e",
+  "lastmod": "2026-10-30"
  },
  "/categories/protective-sleeves": {
-  "hash": "534b912c6304e3d6",
-  "lastmod": "2026-10-26"
+  "hash": "a41ba31f5319b90e",
+  "lastmod": "2026-10-30"
  },
  "/categories/lined-leather-gloves": {
-  "hash": "e26709647623ad9b",
-  "lastmod": "2026-10-26"
+  "hash": "4d2cffaabffb0c7c",
+  "lastmod": "2026-10-30"
  },
  "/categories/drivers-gloves": {
-  "hash": "052b8ae0aa8c8ef7",
-  "lastmod": "2026-10-26"
+  "hash": "91888a8886dfd4d6",
+  "lastmod": "2026-10-30"
  },
  "/categories/canadian-gloves": {
-  "hash": "d90723ca39d0358c",
-  "lastmod": "2026-10-26"
+  "hash": "ca1b8f1f5423f24a",
+  "lastmod": "2026-10-30"
  },
  "/categories/welders-gloves": {
-  "hash": "362c023a9fd7cfcb",
-  "lastmod": "2026-10-26"
+  "hash": "34ce7471998d806e",
+  "lastmod": "2026-10-30"
  },
  "/categories/welding-protection": {
-  "hash": "02ad17697e213fcf",
-  "lastmod": "2026-10-26"
+  "hash": "471e329f4d5033ae",
+  "lastmod": "2026-10-30"
  },
  "/categories/coveralls": {
-  "hash": "34d425ab11e28200",
-  "lastmod": "2026-10-26"
+  "hash": "30f7f210f2916548",
+  "lastmod": "2026-10-30"
  },
  "/categories/jackets-trousers": {
-  "hash": "056f9f03bc898444",
-  "lastmod": "2026-10-26"
+  "hash": "d4794e0fec7d60a6",
+  "lastmod": "2026-10-30"
  },
  "/categories/shirts-tshirts-vests": {
-  "hash": "99eefb4f9d443c03",
-  "lastmod": "2026-10-26"
+  "hash": "fff6912dd6a9abe2",
+  "lastmod": "2026-10-30"
  },
  "/categories/uniforms-lab-coats": {
-  "hash": "ce7d83c24adfe44c",
-  "lastmod": "2026-10-26"
+  "hash": "2393f79de86a6344",
+  "lastmod": "2026-10-30"
  },
  "/categories/safety-shoes": {
-  "hash": "14282070db710601",
-  "lastmod": "2026-10-26"
+  "hash": "76d07e2959fed28a",
+  "lastmod": "2026-10-30"
  },
  "/categories/flanges": {
-  "hash": "84f1bb73e6548925",
-  "lastmod": "2026-10-26"
+  "hash": "73b68f0bddfcd46d",
+  "lastmod": "2026-10-30"
  },
  "/products/sa-24-100-cotton-seamless-knitted-gloves": {
   "hash": "2dae3ebb35eb3be8",
@@ -700,11 +700,15 @@
   "lastmod": "2026-10-21"
  },
  "/about": {
-  "hash": "a5ff96baeba093c2",
-  "lastmod": "2026-10-21"
+  "hash": "0b363aa19ef695a3",
+  "lastmod": "2026-10-30"
  },
  "/contact": {
-  "hash": "73f10841068ab31e",
-  "lastmod": "2026-10-21"
+  "hash": "a1cee3f7ec59e300",
+  "lastmod": "2026-10-30"
+ },
+ "/industrial-safety-products": {
+  "hash": "ff1c1605ae5819a3",
+  "lastmod": "2026-10-30"
  }
 }

@@ -29,6 +29,9 @@ export class App {
   private lastPath = '';
 
   constructor() {
+    // Anchor links (e.g. the guide's table of contents) land below the sticky header, not under it.
+    this.scroller.setOffset(() => [0, (document.querySelector('bh-header')?.getBoundingClientRect().height ?? 0) + 16]);
+
     // Scroll to top on a real page change; restore position on back/forward;
     // leave the scroll alone when only query params change (search, filters).
     this.router.events

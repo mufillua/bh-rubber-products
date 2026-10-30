@@ -176,10 +176,10 @@ export class Products {
         this.seo.set({
           title: cat
             ? cat.seoTitle + (page > 1 ? ` — Page ${page}` : '')
-            : 'Safety Gloves, Safety Shoes, Workwear & Flanges — All Products' + (page > 1 ? ` — Page ${page}` : ''),
+            : 'Industrial Safety Equipment — Safety Gloves, Shoes, Workwear & Flanges' + (page > 1 ? ` — Page ${page}` : ''),
           description: cat
             ? cat.seoDescription.replace('{phone}', COMPANY.phoneDisplay)
-            : `${this.totalCount} products: safety gloves (cut resistant, leather, welding), safety shoes, coveralls, workwear and MS/SS flanges. Kolkata supplier — WhatsApp for a quote.`,
+            : `${this.totalCount} industrial safety products: safety gloves (cut resistant, leather, welding), safety shoes, coveralls, workwear and MS/SS flanges. Kolkata supplier — WhatsApp for a quote.`,
           path: base + (page > 1 ? `?page=${page}` : ''),
           image: cat?.image,
           // Internal search results shouldn't be indexed; the products themselves are.

@@ -1,0 +1,163 @@
+<bh-page-header
+  title="Industrial Safety Products & PPE"
+  intro="What safety equipment is, the 7 types of PPE, and which products protect against which workplace hazards — with links to the gloves, safety shoes and workwear we supply from Clive Row, Kolkata."
+  [crumbs]="[{ label: 'Industrial Safety Products & PPE' }]"
+/>
+
+<div class="container guide">
+  <nav class="toc" aria-labelledby="toc-title">
+    <h2 id="toc-title">On this page</h2>
+    <ol>
+      <li><a href="/industrial-safety-products#what-are">What are industrial safety products?</a></li>
+      <li><a href="/industrial-safety-products#types-of-ppe">The 7 types of PPE</a></li>
+      <li><a href="/industrial-safety-products#safety-equipment">10 common pieces of safety equipment</a></li>
+      <li><a href="/industrial-safety-products#type-5-6">Type 5 and Type 6 coveralls</a></li>
+      <li><a href="/industrial-safety-products#hazards">Workplace hazards and the protection for each</a></li>
+      <li><a href="/industrial-safety-products#rules">Basic safety rules for using PPE</a></li>
+      <li><a href="/industrial-safety-products#faq">Questions</a></li>
+    </ol>
+  </nav>
+
+  <article class="body">
+    <section id="what-are" aria-labelledby="h-what-are">
+      <h2 id="h-what-are">What are industrial safety products?</h2>
+      <p>
+        Industrial safety products are the equipment that protects people from injury at work — in factories, steel
+        plants, workshops, warehouses, construction sites and kitchens. Most of it is <strong>PPE</strong>, short for
+        <strong>personal protective equipment</strong>: things a worker wears, such as safety gloves, safety shoes,
+        helmets, goggles and coveralls.
+      </p>
+      <p>
+        PPE is the last line of defence. It works alongside guarded machines, safe working methods and training, not
+        instead of them — but where a hazard can't be removed, the right PPE is what stands between the worker and an
+        injury.
+      </p>
+      <p>
+        {{ company.name }} supplies hand, foot and body protection —
+        <a routerLink="/products">{{ productCount }} products</a> including safety gloves, safety shoes, coveralls,
+        workwear and welding protection — as well as industrial flanges.
+      </p>
+    </section>
+
+    <section id="types-of-ppe" aria-labelledby="h-types">
+      <h2 id="h-types">The 7 types of PPE</h2>
+      <p>PPE is usually grouped by the part of the body it protects. These are the seven groups most often listed:</p>
+      <ol class="ppe-list">
+        @for (t of ppeTypes; track t.name; let i = $index) {
+          <li class="ppe">
+            <h3><span class="num">{{ i + 1 }}</span>{{ t.name }}</h3>
+            <dl>
+              <div><dt>Protects against</dt><dd>{{ t.against }}</dd></div>
+              <div><dt>Examples</dt><dd>{{ t.examples }}</dd></div>
+            </dl>
+            @if (t.links.length) {
+              <p class="from-range">
+                <span>From our range:</span>
+                @for (l of t.links; track l.path + l.label; let last = $last) {
+                  <a [routerLink]="l.path">{{ l.label }}</a>{{ last ? '' : ', ' }}
+                }
+              </p>
+            }
+          </li>
+        }
+      </ol>
+      <p class="note">
+        Lists of “10 types of PPE” split these further — high-visibility clothing, fall protection (safety harnesses)
+        and skin protection often get their own entries. Our catalogue covers hand and arm, foot and leg, and body
+        protection, including hi-vis wear.
+      </p>
+    </section>
+
+    <section id="safety-equipment" aria-labelledby="h-equipment">
+      <h2 id="h-equipment">10 common pieces of safety equipment</h2>
+      <p>A typical list of the safety equipment found on industrial sites, and what each one does:</p>
+      <ol class="equip">
+        @for (e of equipment; track e.name) {
+          <li>
+            <strong>{{ e.name }}</strong> — {{ e.use }}
+            @if (e.link) {
+              <a class="more" [routerLink]="e.link.path">{{ e.link.label }}</a>
+            }
+          </li>
+        }
+      </ol>
+    </section>
+
+    <section id="type-5-6" aria-labelledby="h-type56">
+      <h2 id="h-type56">What are Type 5 and Type 6 coveralls?</h2>
+      <p>
+        “Type” numbers come from the European classification of protective clothing against chemicals. Types 1 to 4
+        cover gases, vapours, and jets or sprays of liquid chemicals. The two you hear about most for coveralls are:
+      </p>
+      <ul>
+        <li>
+          <strong>Type 5</strong> — protection against hazardous dry particles, such as fine dust and fibres
+          (EN ISO 13982-1).
+        </li>
+        <li>
+          <strong>Type 6</strong> — limited protection against light sprays and small splashes of liquid chemicals
+          (EN 13034).
+        </li>
+      </ul>
+      <p>
+        A “Type 5/6 coverall” meets both, and is usually a disposable suit. The
+        <a routerLink="/categories/coveralls">coveralls on this site</a> are cotton and poly-cotton workwear coveralls
+        (boiler suits) for general industrial work — they are not Type 5 or Type 6 chemical protective clothing.
+      </p>
+    </section>
+
+    <section id="hazards" aria-labelledby="h-hazards">
+      <h2 id="h-hazards">Workplace hazards and the protection for each</h2>
+      <p>
+        Workplace hazards are commonly grouped into safety (mechanical) hazards, physical hazards such as heat and
+        noise, and chemical, biological and ergonomic hazards. PPE mostly guards against the first two. Here are the
+        everyday ones and what protects against them:
+      </p>
+      <div class="hazards">
+        @for (h of hazards; track h.hazard) {
+          <div class="hazard">
+            <h3>{{ h.hazard }}</h3>
+            <p>{{ h.protection }}</p>
+            <a [routerLink]="h.link.path">{{ h.link.label }} →</a>
+          </div>
+        }
+      </div>
+    </section>
+
+    <section id="rules" aria-labelledby="h-rules">
+      <h2 id="h-rules">Basic safety rules for using PPE</h2>
+      <ol class="rules">
+        @for (r of rules; track $index) {
+          <li>{{ r }}</li>
+        }
+      </ol>
+    </section>
+
+    <section id="faq" aria-labelledby="h-faq">
+      <h2 id="h-faq">Questions</h2>
+      <div class="faq">
+        <h3>What is the full form of PPE?</h3>
+        <p>PPE stands for personal protective equipment.</p>
+
+        <h3>Where can I buy industrial safety products in Kolkata?</h3>
+        <p>
+          {{ company.name }}, {{ company.address.line1 }}, {{ company.address.city }}, supplies safety gloves, safety
+          shoes, coveralls, workwear and welding protection. Send the product code and quantity on WhatsApp or email,
+          or call <a [href]="'tel:' + company.phoneHref">{{ company.phoneDisplay }}</a>, for price and availability.
+        </p>
+
+        <h3>How do I choose the right safety gloves?</h3>
+        <p>
+          Start from the hazard: cuts, heat, welding or general handling. Each glove category has a short buying guide
+          — for example <a routerLink="/categories/cut-resistant-gloves">cut resistant gloves</a> explains EN 388 cut
+          levels, and <a routerLink="/categories/heat-resistant-gloves">heat resistant gloves</a> explains EN 407.
+        </p>
+      </div>
+    </section>
+  </article>
+</div>
+
+<bh-cta-section
+  heading="Need safety gloves, shoes or workwear?"
+  text="Send us the product codes and quantities and we'll come back with availability and pricing."
+/>

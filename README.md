@@ -36,6 +36,7 @@ www to redirect to the bare domain: that would loop with the rule above.
 | Categories and their grouping | `src/app/data/categories.data.ts` |
 | Category page Google title, heading (H1) and description (`seoTitle`, `heading`, `seoDescription`) | `src/app/data/categories.data.ts` |
 | Buying-guide text under each category page | `src/app/data/category-guides.data.ts` |
+| PPE & safety guide page (`/industrial-safety-products`) | `src/app/pages/safety-guide/` |
 | Plain-English explanations of EN 388 / EN 407 / EN ISO 20345 ratings | `src/app/core/utils/standards.ts` |
 | Page titles, descriptions, structured data | each page's `seo.set(...)` call; shared logic in `src/app/core/services/seo.service.ts` |
 | Colours, spacing, radius, shadows, type scale | CSS variables at the top of `src/styles.scss` |
@@ -55,6 +56,10 @@ WhatsApp/social preview image. Commit and push; Vercel does the rest.
   15 category pages, 157 product pages) are prerendered with their own title, description,
   canonical link, social preview and structured data — search engines don't need to run
   JavaScript to read them.
+- **Safety guide** at `/industrial-safety-products`: what industrial safety products and PPE are,
+  the 7 types of PPE, 10 common pieces of safety equipment, Type 5/6 coveralls, hazards and the
+  protection for each, and basic PPE rules — answering the questions people search, with links into
+  the matching categories. Linked from the home page and footer.
 - **Category landing pages** at `/categories/<name>` (e.g. `/categories/cut-resistant-gloves`),
   each titled "<Category> Supplier in Kolkata", with a short buying guide under the products.
   Old `/products?category=…` links permanently redirect (308) to them.

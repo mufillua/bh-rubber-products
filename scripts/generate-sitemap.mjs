@@ -72,6 +72,7 @@ const pages = [
   ...PRODUCTS.map((p) => ({ path: `/products/${p.slug}`, images: [p.image], content: [productTpl, p] })),
   { path: '/about', content: [src('pages/about'), company, PRODUCTS.length, CATEGORIES.length] },
   { path: '/contact', content: [src('pages/contact'), company] },
+  { path: '/industrial-safety-products', content: [src('pages/safety-guide'), company, PRODUCTS.length] },
 ];
 
 // <lastmod>: keep each page's previous date unless its content fingerprint changed.

@@ -24,6 +24,7 @@ export class Footer {
   readonly quickLinks = [
     { label: 'Products', path: '/products' },
     { label: 'Categories', path: '/categories' },
+    { label: 'PPE & Safety Guide', path: '/industrial-safety-products' },
     { label: 'About Us', path: '/about' },
     { label: 'Get A Quote', path: '/contact' },
   ];
